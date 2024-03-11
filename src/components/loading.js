@@ -40,9 +40,9 @@ export default function Loading() {
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#000' }}>
 			<Box sx={{ height: '75vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-				<img src="/logo.png" alt="Loading Image" style={{ height: '100vh', width: '100vh', margin: 'auto', position: 'relative', marginTop: '-10vh' }} />
+				<img src="/logo.png" alt="Loading Image" style={{ width: '30vh', margin: 'auto', position: 'relative', marginTop: '30vh' }} />
 			</Box>
-			<Box sx={{ height: '10vh' }}>
+			<Box sx={{ height: '15vh' }}>
 				<MainCircularProgress />
 			</Box>
 			<Box sx={{ height: '10vh', color: '#fff', textAlign: 'center', marginTop: 'auto', fontWeight: '600' }}>
