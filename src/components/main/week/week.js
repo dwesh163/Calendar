@@ -3,7 +3,7 @@ import styles from '@/styles/week.module.css';
 export default function Week({ weekData }) {
 	const daysOfWeek = Object.keys(weekData);
 
-	const timeRow = [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+	const timeRow = [7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5];
 
 	return (
 		<div className={styles['week-box']} data-id="1:415">
@@ -24,24 +24,27 @@ export default function Week({ weekData }) {
 					GMT-5
 				</div>
 			</div>
-			{timeRow.map((time, index) => (
-				<div key={index} className={styles['hour-row']} data-id="1:428">
-					<div className="time-BdLsfm valign-text-middle time text-xsmedium" data-id="1:429">
-						{time} AM
+			<div className={styles['box-100']}>
+				{timeRow.map((time, index) => (
+					<div style={{ height: `calc(100% / ${timeRow.length})` }} key={index} className={styles['hour-row']} data-id="1:428">
+						<div className="time-BdLsfm valign-text-middle time text-xsmedium" data-id="1:429">
+							{time} AM
+						</div>
+						<div className="blocks">
+							{daysOfWeek.map((day) => (
+								<div key={index} className={`${styles['x60-block']}  ${new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Saturday' || new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Sunday' ? 'x60-block-weekend' : ''} ${new Date(day).toLocaleDateString('en-US') === new Date().toLocaleDateString('en-US') ? 'x60-block-today' : ''}`} data-id="1:2306">
+									<div className={styles['x30-block-half']} data-id="1:2308"></div>
+									<div className={styles['x30-block']} data-id="1:2307"></div>
+								</div>
+							))}
+						</div>
+						<div className="time-XwphFF valign-text-middle time text-xsmedium" data-id="1:438">
+							{time} AM
+						</div>
 					</div>
-					<div className="blocks">
-						{daysOfWeek.map((day) => (
-							<div key={index} className={`x60-block-q3cJtl x60-block  ${new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Saturday' || new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Sunday' ? 'x60-block-weekend' : ''} ${new Date(day).toLocaleDateString('en-US') === new Date().toLocaleDateString('en-US') ? 'x60-block-today' : ''}`} data-id="1:2306">
-								<div className="x30-block-C61Ns6 x30-block" data-id="1:2307"></div>
-								<div className="x30-block-oe0AIH x30-block" data-id="1:2308"></div>
-							</div>
-						))}
-					</div>
-					<div className="time-XwphFF valign-text-middle time text-xsmedium" data-id="1:438">
-						{time} AM
-					</div>
-				</div>
-			))}
+				))}
+			</div>
+
 			{/* <div className="hour-row-dU2W8Y hour-row" data-id="1:2242">
 				<div className="time-pvmMZm valign-text-middle time text-xsmedium" data-id="1:2243">
 					8 AM
