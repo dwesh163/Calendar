@@ -10,7 +10,7 @@ export default function Week({ weekData }) {
 			<div className={styles['week-days']} data-id="1:416">
 				<div className={styles['days-rows']} data-id="1:417">
 					{daysOfWeek.map((day) => (
-						<article key={day} className={`${styles['day-title']} ${new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Saturday' || new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Sunday' ? 'day-weekend' : ''} ${new Date(day).toLocaleDateString('en-US') === new Date().toLocaleDateString('en-US') ? 'day-today' : ''}`} style={{ boxShadow: new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Sunday' ? 'inset 0px -1px 0px #e0e0e0' : '' }}>
+						<article key={day} className={`${styles['day-title']} ${new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Saturday' || new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Sunday' ? styles['day-weekend'] : ''} ${new Date(day).toLocaleDateString('en-US') === new Date().toLocaleDateString('en-US') ? styles['day-today'] : ''}`} style={{ boxShadow: new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Sunday' ? 'inset 0px -1px 0px #e0e0e0' : '' }}>
 							<div className={`${styles['days-names']} ${styles['days-names']} ${styles['days-names']}  inter-bold-sonic-silver-10px`}>{new Date(day).toLocaleDateString('en-US', { weekday: 'long' }).substring(0, 3).toUpperCase()}</div>
 							<div className="x21 valign-text-middle inter-medium-black-22px" data-id="1:420">
 								{new Date(day).toLocaleDateString('en-US', { day: '2-digit' })}
@@ -32,7 +32,7 @@ export default function Week({ weekData }) {
 						</div>
 						<div className="blocks">
 							{daysOfWeek.map((day) => (
-								<div key={index} className={`${styles['x60-block']}  ${new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Saturday' || new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Sunday' ? 'x60-block-weekend' : ''} ${new Date(day).toLocaleDateString('en-US') === new Date().toLocaleDateString('en-US') ? 'x60-block-today' : ''}`} data-id="1:2306">
+								<div key={index} className={`${styles['x60-block']} ${new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Saturday' || new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Sunday' ? styles['day-weekend'] : ''} ${new Date(day).toLocaleDateString('en-US') === new Date().toLocaleDateString('en-US') ? styles['day-today'] : ''}`} style={{ boxShadow: new Date(day).toLocaleDateString('en-US', { weekday: 'long' }) === 'Sunday' ? 'inset 0px -1px 0px #e0e0e0' : '' }}>
 									<div className={styles['x30-block-half']} data-id="1:2308"></div>
 									<div className={styles['x30-block']} data-id="1:2307"></div>
 								</div>

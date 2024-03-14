@@ -9,14 +9,13 @@
 }
 
 .week-box {
-    background-color: white;
+    background-color: var(--white);
     align-items: flex-start;
     background-color: transparent;
     display: inline-flex;
     flex-direction: column;
     height: 100%;
     width: 100%;
-    margin-bottom: -50.00px;
     margin-right: 48.00px;
     position: relative;
 }
@@ -62,6 +61,14 @@
     width: calc(100%/7);
 }
 
+.day-weekend {
+    background-color: var(--gray50);
+}
+
+.day-today {
+    background-color: var(--blue50);
+}
+
 .hour-row {
     align-items: flex-start;
     background-color: transparent;
@@ -95,7 +102,7 @@
 }
 
 .x30-block-half {
-    box-shadow: inset 0px -1px 0px #f7f7f7;
+    box-shadow: inset 0px -1px 0px #f0f0f0;
     height: 50%;
     width: 100%;
 
