@@ -1,0 +1,53 @@
+.button {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    padding: 6px 16px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+.button:hover {
+    background-color: #111111;
+    text-decoration: none;
+    transition-duration: 0.1s;
+}
+
+.button:disabled {
+    border: none;
+    color: #959DA5;
+    cursor: default;
+}
+
+.button:active {
+    background-color: #202020;
+    border: none;
+    transition: none 0s;
+}
+
+.button:focus {
+    outline: 1px transparent;
+}
+
+.button:before {
+    display: none;
+}
+
+.button:-webkit-details-marker {
+    display: none;
+}
