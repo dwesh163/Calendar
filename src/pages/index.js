@@ -24,8 +24,23 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 				<link href="https://fonts.googleapis.com/css2?family=Anta&family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
 			</Head>
-			<HeaderComponents setSearchContent={setSearchContent} setSelectedMenu={setSelectedMenu} setSelectedDay={setSelectedDay} SelectedDay={SelectedDay} />
-			<main className={styles.main}>{loading ? <Loading /> : searchContent}</main>
+			<main className={`${styles.main} ${loading ? '' : 'zoom'}`}>
+				{loading ? (
+					<Loading loadingText={loadingText} />
+				) : (
+					<>
+						<div class="container-center-horizontal">
+							<div class="fantastical screen calendar" data-id="1:292">
+								<Side calendars={calendars} initialDate={'03-14-2024'} />
+								<div class="calendar-base-smAq6k" data-id="1:403">
+									<HeaderComponents setSearchContent={setSearchContent} setSelectedMenu={setSelectedMenu} setSelectedDay={setSelectedDay} selectedDay={selectedDay} selectedMenu={selectedMenu} />
+									{selectedMenu == 'Week' ? <Week weekData={weekData} /> : ''}
+								</div>
+							</div>
+						</div>
+					</>
+				)}
+			</main>
 		</>
 	);
 }
