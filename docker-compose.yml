@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+    calendar_db:
+        image: mysql:latest
+        restart: always
+        container_name: calendarDB
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-sup3rs3cr3t}
+            MYSQL_DATABASE: ${MYSQL_DATABASE:-calendar}
+            MYSQL_USER: ${MYSQL_USER:-user}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD:-an0th3rs3cr3t}
+        ports:
+            - 3201:3306
+        volumes:
+            - ./data/mysql:/var/lib/mysql
+            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+        env_file:
+            - .env
+
+    calendar_web:
+        image: node:hydrogen-slim
+        container_name: calendar
+        command: /bin/sh -c "cd /srv/app && npm install && npm run dev"
+        ports:
+            - 3200:3000
+        working_dir: /srv/app
+        volumes:
+            - type: bind
+              source: ./
+              target: /srv/app
+        tty: true
