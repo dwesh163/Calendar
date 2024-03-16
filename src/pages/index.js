@@ -12,8 +12,26 @@ export default function Home() {
 	const [SelectedDay, setSelectedDay] = useState(0);
 
 	useEffect(() => {
-		console.log(searchContent, SelectedMenu, SelectedDay);
-	}, [searchContent, SelectedMenu, SelectedDay]);
+		if (status === 'authenticated') {
+			const fetchCalendar = async () => {
+				try {
+					const response = await fetch(`/api/get/${session.user.calendarId[0]}`, {
+						headers: { token: session.token, user: session.user.id },
+					});
+					if (!response.ok) {
+						throw new Error('Failed to fetch calendar data');
+					}
+					const calendarData = await response.json();
+					setCalendars(calendarData);
+				} catch (error) {
+					console.error('Error fetching calendar data:', error);
+				}
+			};
+
+			fetchCalendar();
+		}
+	}, [status]);
+
 
 	return (
 		<>
