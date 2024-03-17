@@ -32,6 +32,28 @@ export default function Home() {
 		}
 	}, [status]);
 
+	useEffect(() => {
+		if (status === 'authenticated') {
+			const fetchLists = async () => {
+				try {
+					const response = await fetch(`/api/get/lists/${session.user.calendarId.join(':')}?date=${new Date().toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-')}`, {
+						headers: { token: session.token, user: session.user.id },
+					});
+					if (!response.ok) {
+						throw new Error('Failed to fetch calendar data');
+					}
+					const calendarData = await response.json();
+					setCalendarsLists(calendarData.calendars);
+					const formatEvents = reformatEvents(calendarData.events);
+					setEventsLists(formatEvents);
+				} catch (error) {
+					console.error('Error fetching calendar data:', error);
+				}
+			};
+
+			fetchLists();
+		}
+	}, [status]);
 
 	return (
 		<>

@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise';
-import { dbConfig } from '../../../../lib/config';
+import { dbConfig } from '../../../../../lib/config';
 
 var jwt = require('jsonwebtoken');
 
@@ -15,9 +15,6 @@ async function connectMySQL() {
 
 export default async function Get(req, res) {
 	const connection = await connectMySQL();
-
-	console.log(req.query.calendarId); // e7488217-b941-491f-bcc1-17077dbc8031,e7488217-b941-491f-bcc1-17077dbc8037
-	console.log(req.query.date); //03-17-2024
 
 	if (!req.headers.user) {
 		return res.status(401).send('unauthorized');
