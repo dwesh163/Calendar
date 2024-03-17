@@ -55,7 +55,7 @@
 }
 
 .main-box {
-    height: 60vh;
+    height: 63vh;
     width: 100%;
 }
 
@@ -78,6 +78,15 @@
     flex-direction: column;
     flex-grow: 1;
     padding: 4px;
+    position: relative;
+}
+
+.day-header-events {
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 2px;
     position: relative;
 }
 
@@ -139,7 +148,7 @@
     display: flex;
     position: relative;
     color: #ffffffb2;
-    margin: 8px 0 4px 0;
+    margin: 8px 0 0px 0;
 }
 
 .day-header-blue {
@@ -173,6 +182,13 @@
     width: fit-content;
 }
 
+.event-point {
+    border-radius: 2px;
+    height: 4px;
+    position: relative;
+    width: 4px;
+}
+
 .day-event-all {
     align-items: flex-start;
     border-radius: 6px;
@@ -194,7 +210,7 @@
     align-self: stretch;
     align-items: flex-start;
     display: flex;
-    margin: 8px 0;
+    margin: 2px 0;
 }
 
 .day-time {
@@ -211,6 +227,61 @@
     font-size: 1rem;
     font-style: normal;
     font-weight: 600;
+}
+
+.day-title {
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 10px;
+    padding: 0px 0px 0px 20px;
+    width: 100%;
+    margin: 6px 0 5px 0;
+}
+
+.day-location {
+    background-color: transparent;
+    letter-spacing: 0.00px;
+    line-height: 16px;
+    margin-top: -1.00px;
+    position: relative;
+    text-align: left;
+    white-space: nowrap;
+    width: fit-content;
+    color: #a1a1aa;
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 400;
+    font-family: "Inter", Helvetica;
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 10px;
+    padding: 0px 0px 0px 20px;
+    width: 100%;
+}
+
+.day-current {
+    align-items: center;
+    background-color: #3b82f6;
+    border-radius: 50%;
+    height: 40px;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    padding: 3px 10px;
+    margin-top: -10px;
+    position: relative;
+}
+
+.day-event-url {
+    color: #a1a1aa;
+}
+
+.day-event-url:hover {
+    color: #d5d5dd;
 }
 
 .left {
