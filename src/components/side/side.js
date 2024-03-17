@@ -170,39 +170,35 @@ export default function Side({ calendars, initialDate, events }) {
 				</div>
 				{weeks.map((week, weekIndex) => (
 					<div className={styles['week']} key={weekIndex}>
-						{week.map((day, dayIndex) => (
-							<div className={styles['day-box']} key={dayIndex}>
-								{new Date().getDate() == day.getDate() && new Date().getMonth() == day.getMonth() ? (
-									<div class={styles['day-current']}>
-										<div className={`${!isSameMonth(day, currentDate) ? styles['day-not'] : ''} valign-text-middle inter-semi-bold-white-11px`} style={{ marginTop: '7px' }}>
-											{day.getDate()}
+						{week.map((day, dayIndex) => {
+							const eventsForDay = events[`${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[2]}-${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[0]}-${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[1]}`] || [];
+
+							return (
+								<div className={styles['day-box']} key={dayIndex}>
+									{new Date().getDate() === day.getDate() && new Date().getMonth() === day.getMonth() ? (
+										<div class={styles['day-current']}>
+											<div className={`${!isSameMonth(day, currentDate) ? styles['day-not'] : ''} valign-text-middle inter-semi-bold-white-11px`} style={{ marginTop: '5px' }}>
+												{day.getDate()}
+											</div>
+											<div className={styles['day-header-events']}>
+												{eventsForDay.slice(0, 4).map((event, index) => (
+													<div class={styles['event-point']} style={{ backgroundColor: 'white' }} key={index} data-id="1:2650"></div>
+												))}
+											</div>
 										</div>
-										{events[`${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[2]}-${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[0]}-${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[1]}`] ? (
+									) : (
+										<>
+											<div className={` ${!isSameMonth(day, currentDate) ? styles['day-not'] : ''} valign-text-middle inter-semi-bold-white-11px`}>{day.getDate()}</div>
 											<div className={styles['day-header-events']}>
-												{events[`${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[2]}-${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[0]}-${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[1]}`].map((event, index) => (
-													<div class={styles['event-point']} style={{ backgroundColor: 'white' }} data-id="1:2650"></div>
+												{eventsForDay.slice(0, 4).map((event, index) => (
+													<div class={styles['event-point']} style={{ backgroundColor: '#' + event.calendar_color }} key={index} data-id="1:2650"></div>
 												))}
 											</div>
-										) : (
-											<></>
-										)}
-									</div>
-								) : (
-									<>
-										<div className={` ${!isSameMonth(day, currentDate) ? styles['day-not'] : ''} valign-text-middle inter-semi-bold-white-11px`}>{day.getDate()}</div>
-										{events[`${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[2]}-${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[0]}-${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[1]}`] ? (
-											<div className={styles['day-header-events']}>
-												{events[`${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[2]}-${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[0]}-${new Date(day).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[1]}`].map((event, index) => (
-													<div class={styles['event-point']} style={{ backgroundColor: '#' + event.calendar_color }} data-id="1:2650"></div>
-												))}
-											</div>
-										) : (
-											<></>
-										)}
-									</>
-								)}
-							</div>
-						))}
+										</>
+									)}
+								</div>
+							);
+						})}
 					</div>
 				))}
 			</div>
