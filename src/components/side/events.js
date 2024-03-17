@@ -99,15 +99,39 @@ export default function Events({ events }) {
 											<div className="ellipse-4-kqTvlq ellipse-4" style={{ backgroundColor: '#' + event.calendar_color }}></div>
 											<div className="time-kqTvlq time">
 												<div className={styles['day-time']}>
-													{event.event_start} – {event.event_end} AM
+													{(parseInt(event.event_start.split(':')[0]) > 12 ? 'PM' : 'AM') != (parseInt(event.event_end.split(':')[0]) > 12 ? 'PM' : 'AM') ? (
+														<span>
+															{event.event_start} {parseInt(event.event_start.split(':')[0]) > 12 ? 'PM' : 'AM'} – {event.event_end} {parseInt(event.event_end.split(':')[0]) > 12 ? 'PM' : 'AM'}
+														</span>
+													) : (
+														<span>
+															{event.event_start} – {event.event_end} {parseInt(event.event_start.split(':')[0]) > 12 ? 'PM' : 'AM'}
+														</span>
+													)}
 												</div>
-												<div className="frame-11-xpN6K4 frame-11">
-													<img className="video-camera" src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65f14e945ff555309d45bd7e/img/video-camera-2.svg" alt="video-camera" />
-												</div>
+												{event.event_url ? (
+													<div className="frame-11-xpN6K4 frame-11">
+														<img className="video-camera" src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65f14e945ff555309d45bd7e/img/video-camera-2.svg" alt="video-camera" />
+													</div>
+												) : (
+													<></>
+												)}
 											</div>
 										</div>
-										<div className="title-Rmpwcx title">
+										<div className={styles['day-title']}>
 											<div className="monthly-catch-up valign-text-middle text-xsmedium">{event.event_name}</div>
+										</div>
+										<div className={styles['day-location']}>
+											{event.event_url ? (
+												<>
+													{event.event_location} {event.event_location ? '/ ' : ' '}
+													<a className={styles['day-event-url']} target="_blank" href={event.event_url}>
+														{event.event_url}
+													</a>
+												</>
+											) : (
+												<>{event.event_location}</>
+											)}
 										</div>
 									</div>
 								)
