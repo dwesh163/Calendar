@@ -3,11 +3,11 @@ import { PersonFill } from 'react-bootstrap-icons';
 
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { useState, useEffect } from 'react';
+import Events from './events';
 
-export default function Side({ calendars, initialDate }) {
+export default function Side({ calendars, initialDate, events }) {
 	const { data: session, status } = useSession();
 
-	console.log(initialDate);
 	const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 	const [currentDate, setCurrentDate] = useState(new Date(initialDate));
 
@@ -76,36 +76,39 @@ export default function Side({ calendars, initialDate }) {
 					</div>
 				</div>
 			</div>
-			<div className={styles['month-box']}>
-				<div className={styles['month-title']}>
-					<h1 className={styles['month-text']}>{currentDate.toLocaleString('default', { month: 'long' })}</h1>
-					<h1 className={styles['month-year']}>{currentDate.getFullYear()}</h1>
+			<div className={styles['main-box']}>
+				<div className={styles['month-box']}>
+					<div className={styles['month-title']}>
+						<h1 className={styles['month-text']}>{currentDate.toLocaleString('default', { month: 'long' })}</h1>
+						<h1 className={styles['month-year']}>{currentDate.getFullYear()}</h1>
+					</div>
+					<div className="arrows" data-id="1:304">
+						<img className="chevron-left-tnsQ9a" src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65f14e945ff555309d45bd7e/img/chevron-left-1.svg" anima-src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65f14e945ff555309d45bd7e/img/chevron-left-1.svg" alt="chevron-left" onClick={() => changeMonth(-1)} />
+						<img className="chevron-right-tnsQ9a" src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65f14e945ff555309d45bd7e/img/chevron-right-1.svg" anima-src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65f14e945ff555309d45bd7e/img/chevron-right-1.svg" alt="chevron-right" onClick={() => changeMonth(1)} />
+					</div>
 				</div>
-				<div className="arrows" data-id="1:304">
-					<img className="chevron-left-tnsQ9a" src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65f14e945ff555309d45bd7e/img/chevron-left-1.svg" anima-src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65f14e945ff555309d45bd7e/img/chevron-left-1.svg" alt="chevron-left" onClick={() => changeMonth(-1)} />
-					<img className="chevron-right-tnsQ9a" src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65f14e945ff555309d45bd7e/img/chevron-right-1.svg" anima-src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65f14e945ff555309d45bd7e/img/chevron-right-1.svg" alt="chevron-right" onClick={() => changeMonth(1)} />
+				<div className="mini-calendar-hDJypf">
+					<div className="header-nxhxsB header">
+						{daysOfWeek.map((day, index) => (
+							<article className={styles['week-header']} key={index}>
+								<div className={`day-${day} valign-text-middle inter-semi-bold-sonic-silver-10px`}>{day}</div>
+							</article>
+						))}
+					</div>
 				</div>
+				{weeks.map((week, weekIndex) => (
+					<div className={styles['week']} key={weekIndex}>
+						{week.map((day, dayIndex) => (
+							<div className={styles['day-box']} key={dayIndex}>
+								<div className={`${styles.day} ${!isSameMonth(day, currentDate) ? styles['day-not'] : ''} valign-text-middle inter-semi-bold-white-11px`}>{day.getDate()}</div>
+								<div className={styles['day-events']}></div>
+							</div>
+						))}
+					</div>
+				))}
 			</div>
-			<div className="mini-calendar-hDJypf">
-				<div className="header-nxhxsB header">
-					{daysOfWeek.map((day, index) => (
-						<article className={styles['day-header']} key={index}>
-							<div className={`day-${day} valign-text-middle inter-semi-bold-sonic-silver-10px`}>{day}</div>
-						</article>
-					))}
-				</div>
-			</div>
-			{weeks.map((week, weekIndex) => (
-				<div className={styles['week']} key={weekIndex}>
-					{week.map((day, dayIndex) => (
-						<div className={styles['day-box']} key={dayIndex}>
-							<div className={`${styles.day} ${!isSameMonth(day, currentDate) ? styles['day-not'] : ''} valign-text-middle inter-semi-bold-white-11px`}>{day.getDate()}</div>
-							<div className={styles['day-events']}></div>
-						</div>
-					))}
-				</div>
-			))}
-			<div style={{ color: 'white', width: '100%', wordWrap: 'break-word' }}>{JSON.stringify(calendars)}</div>
+
+			<Events events={events} />
 		</div>
 	);
 }
