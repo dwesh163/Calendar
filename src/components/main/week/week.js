@@ -1,8 +1,23 @@
 import styles from '@/styles/week.module.css';
 
-export default function Week({ weekData }) {
-	const daysOfWeek = Object.keys(weekData);
+const getDaysInWeek = (date) => {
+	const daysArray = [];
+	const year = date.getFullYear();
+	const month = date.getMonth();
+	const dayOfWeek = date.getDay();
+	let startOfWeek = date.getDate() - dayOfWeek + 1;
+	if (dayOfWeek === 0) startOfWeek -= 7;
+	const endOfWeek = startOfWeek + 6;
 
+	for (let i = startOfWeek; i <= endOfWeek; i++) {
+		daysArray.push(new Date(year, month, i));
+	}
+
+	return daysArray;
+};
+
+export default function Week({ initialDate, events }) {
+	const daysOfWeek = getDaysInWeek(new Date(initialDate));
 	const timeRow = [7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5];
 
 	return (
