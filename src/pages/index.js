@@ -84,6 +84,9 @@ export default function Home() {
 	const [calendarsWeek, setCalendarsWeek] = useState({});
 	const [eventsWeek, setEventsWeek] = useState({});
 
+	const [calendarsLite, setCalendarsLite] = useState({});
+	const [eventsLite, setEventsLite] = useState({});
+
 	const [searchContent, setSearchContent] = useState('');
 	const [selectedMenu, setSelectedMenu] = useState('Week');
 	const [selectedDay, setSelectedDay] = useState(0);
@@ -145,6 +148,30 @@ export default function Home() {
 
 	useEffect(() => {
 		if (status === 'authenticated') {
+			const fetchLite = async () => {
+				try {
+					const response = await fetch(`/api/get/lite/${session.user.calendarId.join(':')}?date=${new Date().toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-')}`, {
+						headers: { token: session.token, user: session.user.id },
+					});
+					if (!response.ok) {
+						throw new Error('Failed to fetch calendar data');
+					}
+					const calendarData = await response.json();
+					setCalendarsLite(calendarData.calendars);
+					const formatEvents = reformatEvents(calendarData.events);
+					console.log('formatEvents', formatEvents);
+					setEventsLite(formatEvents);
+				} catch (error) {
+					console.error('Error fetching calendar data:', error);
+				}
+			};
+
+			fetchLite();
+		}
+	}, [status]);
+
+	useEffect(() => {
+		if (status === 'authenticated') {
 			const fetchLists = async () => {
 				try {
 					const response = await fetch(`/api/get/lists/${session.user.calendarId.join(':')}?date=${new Date().toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-')}`, {
@@ -183,7 +210,7 @@ export default function Home() {
 					<>
 						<div class="container-center-horizontal">
 							<div class="fantastical screen calendar" data-id="1:292">
-								<Side calendars={calendarsLists} initialDate={new Date()} events={eventsLists} />
+								<Side calendars={calendarsLists} initialDate={new Date()} events={eventsLists} eventsLite={eventsLite} />
 								<div class="calendar-base-smAq6k">
 									<HeaderComponents setSearchContent={setSearchContent} setSelectedMenu={setSelectedMenu} setSelectedDay={setSelectedDay} selectedDay={selectedDay} selectedMenu={selectedMenu} />
 									{selectedMenu == 'Week' ? <Week initialDate={new Date()} events={eventsWeek} /> : ''}
