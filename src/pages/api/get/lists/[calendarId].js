@@ -44,11 +44,13 @@ export default async function Get(req, res) {
 				}
 				var calendar = await connection.execute('SELECT calendar_id, calendar_name, calendar_color, calendar_id_public FROM calendars WHERE calendar_id_public = ?', [calendarId]);
 
+				var eventDateWeek = new Date();
 				var dateParts = req.query.date.split('-');
 				var eventDate = new Date(dateParts[2], parseInt(dateParts[0]) - 1, dateParts[1]);
 				eventDate.setDate(eventDate.getDate() - 1);
+				eventDateWeek.setDate(eventDate.getDate() + 7);
 
-				var eventsCalendar = await connection.execute('SELECT event_start, event_end, event_description, event_date, event_location, event_url, event_name FROM events WHERE calendar_id = ? AND event_date > ?', [calendar[0][0].calendar_id, eventDate]);
+				var eventsCalendar = await connection.execute('SELECT event_start, event_end, event_description, event_date, event_location, event_url, event_name FROM events WHERE calendar_id = ? AND event_date > ? AND event_date < ?', [calendar[0][0].calendar_id, eventDate, eventDateWeek]);
 
 				eventsCalendar[0].map((item) => {
 					item.calendar_id = calendar[0][0].calendar_id_public;
