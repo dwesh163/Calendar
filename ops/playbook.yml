@@ -1,0 +1,6 @@
+- name: calendar
+  hosts: all
+  roles:
+      - name: calendar
+  tags:
+      - calendar

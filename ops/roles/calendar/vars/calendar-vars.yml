@@ -1,0 +1,4 @@
+calendar_deploy_path: "/srv/calendar"
+calendar_github_repo: "https://github.com/dwesh163/Calendar.git"
+calendar_docker_name: "calendar"
+calendar_db_docker_name: "calendarDB"

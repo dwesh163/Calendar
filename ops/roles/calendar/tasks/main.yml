@@ -1,0 +1,45 @@
+# - name: Hello World
+#   shell: ls -al /
+
+- include_vars: calendar-vars
+
+- name: Clone github repository
+  ansible.builtin.git:
+    repo: "{{ calendar_github_repo }}"
+    dest: "{{ calendar_deploy_path }}"
+    force: yes
+
+- name: Change file ownership, group and permissions
+  ansible.builtin.file:
+    path: "{{ calendar_deploy_path }}"
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: Copy .env
+  copy:
+    src: /.env-prod
+    dest: "{{ calendar_deploy_path }}"
+
+- name: Install docker-compose
+  become: true
+  apt:
+    package:
+      - docker-compose
+
+- name: Stop and remove container (if already exists)
+  docker_container:
+    name: "{{ calendar_docker_name }}"
+    state: absent
+
+- name: Stop and remove container (if already exists)
+  docker_container:
+    name: "{{ calendar_db_docker_name }}"
+    state: absent
+
+- name: Run docker-compose
+  community.docker.docker_compose:
+    project_src: "{{ calendar_deploy_path }}"
+    files:
+      - docker-compose.yml
+    build: true

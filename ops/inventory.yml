@@ -1,0 +1,5 @@
+all:
+    hosts:
+        server01:
+            ansible_host: 192.168.0.97
+            ansible_user: root
