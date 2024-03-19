@@ -213,7 +213,7 @@ export default function Home() {
 								<Side calendars={calendarsLists} initialDate={new Date()} events={eventsLists} eventsLite={eventsLite} />
 								<div class="calendar-base-smAq6k">
 									<HeaderComponents setSearchContent={setSearchContent} setSelectedMenu={setSelectedMenu} setSelectedDay={setSelectedDay} selectedDay={selectedDay} selectedMenu={selectedMenu} />
-									{selectedMenu == 'Week' ? <Week initialDate={new Date()} events={eventsWeek} /> : ''}
+									{selectedMenu == 'Week' ? <Week initialDate={new Date()} events={eventsWeek} /> : selectedMenu == 'Month' ? <Month initialDate={new Date()} events={eventsWeek} /> : ''}
 								</div>
 							</div>
 						</div>
