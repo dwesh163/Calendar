@@ -19,7 +19,7 @@ const getDaysInWeek = (date) => {
 
 export default function Week({ initialDate, events }) {
 	const daysOfWeek = getDaysInWeek(new Date(initialDate));
-	const timeRow = [7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5];
+	const timeRow = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
 
 	return (
 		<>
@@ -46,7 +46,7 @@ export default function Week({ initialDate, events }) {
 					{timeRow.map((time, index) => (
 						<div style={{ height: `calc(100% / ${timeRow.length})` }} key={index} className={styles['hour-row']} data-id="1:428">
 							<div className="time-BdLsfm valign-text-middle time text-xsmedium" data-id="1:429">
-								{time} {time < 13 && time > 6 ? 'AM' : 'PM'}
+								{time} AM
 							</div>
 							<div className="blocks">
 								{daysOfWeek.map((day) => (
@@ -57,7 +57,7 @@ export default function Week({ initialDate, events }) {
 								))}
 							</div>
 							<div className="time-XwphFF valign-text-middle time text-xsmedium" data-id="1:438">
-								{time} {time < 13 && time > 6 ? 'AM' : 'PM'}
+								{time} AM
 							</div>
 						</div>
 					))}
