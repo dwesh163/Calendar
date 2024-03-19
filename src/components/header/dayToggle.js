@@ -1,5 +1,3 @@
-import styles from '@/styles/header.module.css';
-
 export default function DayToggle({ setSelectedDay, selectedDay }) {
 	const handleInputChange = (event) => {
 		const content = event.target.value;
