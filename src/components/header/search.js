@@ -1,5 +1,3 @@
-import styles from '@/styles/header.module.css';
-
 import { Search } from 'react-bootstrap-icons';
 
 export default function SearchBar({ setSearchContent }) {
