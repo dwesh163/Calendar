@@ -46,7 +46,7 @@ export const authOptions = {
 					await connection.execute('INSERT INTO users (user_id_public, user_email, user_username, user_image, user_provider, user_company, user_name, user_key_private, user_key_public) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [uuidv4(), user.email, profile.login, user.image, account.provider, profile.company, profile.name, generateRandomString(32), generateRandomString(32)]);
 					const [rows] = await connection.execute('SELECT user_id FROM users WHERE user_email = ?', [user.email]);
 					const userId = rows[0].user_id;
-					await connection.execute('INSERT INTO calendars (calendar_name, calendar_id_public, calendar_color calendar_user_id) VALUES (?, ?, ?, ?)', ['Calendar 1', uuidv4(), userId, 'a855f7']);
+					await connection.execute('INSERT INTO calendars (calendar_name, calendar_id_public, calendar_color calendar_user_id) VALUES (?, ?, ?, ?)', ['Calendar 1', uuidv4(), 'a855f7', userId]);
 				}
 
 				return Promise.resolve(true);
