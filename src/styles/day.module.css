@@ -1,0 +1,110 @@
+.mainBox {
+    position: absolute;
+    display: flex;
+    width: 80vw;
+    height: 80vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.week-box {
+    background-color: var(--white);
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin-right: 48.00px;
+    position: relative;
+}
+
+.week-days {
+    align-items: flex-start;
+    background-color: transparent;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 12px;
+    padding: 0px 0px 0px 4vw;
+    position: relative;
+    width: calc(100% - 4vw);
+}
+
+.days-rows {
+    display: inline-flex;
+    flex: 0 0 auto;
+    width: 100%;
+    align-items: flex-start;
+    background-color: transparent;
+    position: relative;
+}
+
+.days-names {
+    background-color: transparent;
+    position: relative;
+    align-self: stretch;
+    letter-spacing: 0.00px;
+    line-height: 12px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.day-title {
+    align-items: flex-start;
+    background-color: var(--white);
+    box-shadow: inset 0px -1px 0px #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    padding: 4px 8px 16px;
+    position: relative;
+    width: calc(100%);
+}
+
+.day-weekend {
+    background-color: var(--gray50);
+}
+
+.day-today {
+    background-color: var(--blue50);
+}
+
+.hour-row {
+    align-items: flex-start;
+    background-color: transparent;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 12px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.box-100 {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 12px;
+}
+
+.x60-block {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: calc(100%);
+    height: 100%;
+    box-shadow: inset 0px -1px 0px #e0e0e0;
+}
+
+.x30-block {
+    height: 50%;
+    width: 100%;
+}
+
+.x30-block-half {
+    box-shadow: inset 0px -1px 0px #f0f0f0;
+    height: 50%;
+    width: 100%;
+
+}
