@@ -7,6 +7,8 @@ import Loading from '@/components/loading';
 import HeaderComponents from '@/components/header/header';
 import Week from '@/components/main/week/week';
 import Side from '@/components/side/side';
+import Month from '@/components/main/month/month';
+import Day from '@/components/main/day/day';
 
 function formatTime(timeString) {
 	const [hours, minutes] = timeString.split(':');
@@ -81,15 +83,15 @@ export default function Home() {
 	const [calendarsLists, setCalendarsLists] = useState({});
 	const [eventsLists, setEventsLists] = useState({});
 
-	const [calendarsWeek, setCalendarsWeek] = useState({});
-	const [eventsWeek, setEventsWeek] = useState({});
+	const [calendarsMonth, setCalendarsMonth] = useState({});
+	const [eventsMonth, setEventsMonth] = useState({});
 
 	const [calendarsLite, setCalendarsLite] = useState({});
 	const [eventsLite, setEventsLite] = useState({});
 
 	const [searchContent, setSearchContent] = useState('');
-	const [selectedMenu, setSelectedMenu] = useState('Week');
-	const [selectedDay, setSelectedDay] = useState(0);
+	const [selectedMenu, setSelectedMenu] = useState('Month');
+	const [selectedDay, setSelectedDay] = useState(new Date());
 
 	useEffect(() => {
 		if (status == 'loading') {
@@ -125,24 +127,25 @@ export default function Home() {
 
 	useEffect(() => {
 		if (status === 'authenticated') {
-			const fetchWeek = async () => {
+			const fetchMonth = async () => {
 				try {
-					const response = await fetch(`/api/get/week/${session.user.calendarId.join(':')}?date=${new Date().toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-')}`, {
+					const response = await fetch(`/api/get/month/${session.user.calendarId.join(':')}?date=${selectedDay.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-')}`, {
 						headers: { token: session.token, user: session.user.id },
 					});
 					if (!response.ok) {
 						throw new Error('Failed to fetch calendar data');
 					}
 					const calendarData = await response.json();
-					setCalendarsWeek(calendarData.calendars);
+					setCalendarsMonth(calendarData.calendars);
 					const formatEvents = reformatEvents(calendarData.events);
-					setEventsWeek(formatEvents);
+					setEventsMonth(formatEvents);
 				} catch (error) {
+					setEventsMonth({});
 					console.error('Error fetching calendar data:', error);
 				}
 			};
 
-			fetchWeek();
+			fetchMonth();
 		}
 	}, [status]);
 
@@ -150,7 +153,7 @@ export default function Home() {
 		if (status === 'authenticated') {
 			const fetchLite = async () => {
 				try {
-					const response = await fetch(`/api/get/lite/${session.user.calendarId.join(':')}?date=${new Date().toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-')}`, {
+					const response = await fetch(`/api/get/lite/${session.user.calendarId.join(':')}?date=${selectedDay.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-')}`, {
 						headers: { token: session.token, user: session.user.id },
 					});
 					if (!response.ok) {
@@ -210,10 +213,10 @@ export default function Home() {
 					<>
 						<div class="container-center-horizontal">
 							<div class="fantastical screen calendar" data-id="1:292">
-								<Side calendars={calendarsLists} initialDate={new Date()} events={eventsLists} eventsLite={eventsLite} />
+								<Side calendars={calendarsLists} initialDate={selectedDay} events={eventsLists} eventsLite={eventsLite} />
 								<div class="calendar-base-smAq6k">
 									<HeaderComponents setSearchContent={setSearchContent} setSelectedMenu={setSelectedMenu} setSelectedDay={setSelectedDay} selectedDay={selectedDay} selectedMenu={selectedMenu} />
-									{selectedMenu == 'Week' ? <Week initialDate={new Date()} events={eventsWeek} /> : selectedMenu == 'Month' ? <Month initialDate={new Date()} events={eventsWeek} /> : ''}
+									{selectedMenu == 'Week' ? <Week initialDate={selectedDay} events={eventsMonth} /> : selectedMenu == 'Month' ? <Month initialDate={selectedDay} events={eventsMonth} /> : selectedMenu == 'Day' ? <Day initialDate={selectedDay} events={eventsMonth} /> : ''}
 								</div>
 							</div>
 						</div>
