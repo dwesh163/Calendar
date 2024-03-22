@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-.week-box {
+.day-box {
     background-color: var(--white);
     align-items: flex-start;
     background-color: transparent;
@@ -20,7 +20,7 @@
     position: relative;
 }
 
-.week-days {
+.day-days {
     align-items: flex-start;
     background-color: transparent;
     display: flex;
@@ -31,7 +31,7 @@
     width: calc(100% - 4vw);
 }
 
-.days-rows {
+.day-rows {
     display: inline-flex;
     flex: 0 0 auto;
     width: 100%;
@@ -61,7 +61,7 @@
     width: calc(100%);
 }
 
-.day-weekend {
+.day-dayend {
     background-color: var(--gray50);
 }
 
