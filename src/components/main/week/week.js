@@ -1,5 +1,6 @@
 import styles from '@/styles/week.module.css';
 import Events from './events';
+import { Gear } from 'react-bootstrap-icons';
 
 const getDaysInWeek = (date) => {
 	const daysArray = [];
@@ -18,12 +19,29 @@ const getDaysInWeek = (date) => {
 };
 
 export default function Week({ initialDate, events }) {
+	const startOfWeek = new Date(initialDate);
+	startOfWeek.setDate(startOfWeek.getDate() - ((startOfWeek.getDay() + 6) % 7));
+	const endOfWeek = new Date(initialDate);
+	endOfWeek.setDate(endOfWeek.getDate() + ((7 - endOfWeek.getDay()) % 7));
+
+	const eventsInWeek = [];
+	for (let date = new Date(startOfWeek); date <= endOfWeek; date.setDate(date.getDate() + 1)) {
+		const dateString = date.toISOString().split('T')[0];
+		if (events[dateString]) {
+			eventsInWeek[dateString] = [];
+			eventsInWeek[dateString].push(...events[dateString]);
+		}
+	}
+
 	const daysOfWeek = getDaysInWeek(new Date(initialDate));
 	const timeRow = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
 
 	return (
 		<>
-			<Events events={events} />
+			<Events events={eventsInWeek} />
+			<div style={{ position: 'absolute', bottom: '15px', right: '30px', color: '#71717a', fontSize: '1.4rem' }}>
+				<Gear />
+			</div>
 			<div className={styles['week-box']} data-id="1:415">
 				<div className={styles['week-days']} data-id="1:416">
 					<div className={styles['days-rows']} data-id="1:417">
