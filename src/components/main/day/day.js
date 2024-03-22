@@ -1,14 +1,18 @@
 import styles from '@/styles/day.module.css';
 import Events from './events';
+import { Gear } from 'react-bootstrap-icons';
 
 export default function Day({ initialDate, events }) {
 	const timeRow = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
 	return (
 		<>
 			<Events events={events} initialDate={initialDate} />
-			<div className={styles['week-box']} data-id="1:415">
-				<div className={styles['week-days']} data-id="1:416">
-					<div className={styles['days-rows']} data-id="1:417">
+			<div style={{ position: 'absolute', bottom: '15px', right: '30px', color: '#71717a', fontSize: '1.4rem' }}>
+				<Gear />
+			</div>
+			<div className={styles['day-box']} data-id="1:415">
+				<div className={styles['day-days']} data-id="1:416">
+					<div className={styles['day-rows']} data-id="1:417">
 						<article key={initialDate} className={`${styles['day-title']} ${new Date(initialDate).toLocaleDateString('en-US', { weekday: 'long' }) === 'Saturday' || new Date(initialDate).toLocaleDateString('en-US', { weekday: 'long' }) === 'Sunday' ? styles['day-weekend'] : ''}`}>
 							<div className={`${styles['days-names']} ${styles['days-names']} ${styles['days-names']}  inter-bold-sonic-silver-10px`}>{new Date(initialDate).toLocaleDateString('en-US', { weekday: 'long' }).toUpperCase()}</div>
 							<div className="x21 valign-text-middle inter-medium-black-22px" data-id="1:420">
