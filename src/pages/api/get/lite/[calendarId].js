@@ -28,10 +28,11 @@ export default async function Get(req, res) {
 			return res.status(401).send('unauthorized');
 		}
 
-		var decoded = jwt.verify(req.headers.token, user.user_key_public);
+		var decoded = jwt.verify(req.headers.token, user.user_key_private);
 
 		if (decoded.key == user.user_key_private && decoded.id == user.user_id_public && decoded.id == req.headers.user) {
-			var calendarIds = decoded.calendarId;
+			var calendarIds = await connection.execute('SELECT calendar_id_public FROM calendars WHERE calendar_user_id = ?', [user.user_id]);
+			calendarIds = calendarIds[0].map((item) => item.calendar_id_public);
 			var reqCalendarIds = req.query.calendarId.split(':');
 
 			var calendars = [];

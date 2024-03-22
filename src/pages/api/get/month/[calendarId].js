@@ -28,13 +28,13 @@ export default async function Get(req, res) {
 			return res.status(401).send('unauthorized');
 		}
 
-		var decoded = jwt.verify(req.headers.token, user.user_key_public);
+		var decoded = jwt.verify(req.headers.token, user.user_key_private);
 
 		if (decoded.key == user.user_key_private && decoded.id == user.user_id_public && decoded.id == req.headers.user) {
-			var calendarIds = decoded.calendarId;
+			var calendarIds = await connection.execute('SELECT calendar_id_public FROM calendars WHERE calendar_user_id = ?', [user.user_id]);
+			calendarIds = calendarIds[0].map((item) => item.calendar_id_public);
 			var reqCalendarIds = req.query.calendarId.split(':');
 
-			console.log(req.query.date);
 			var calendars = [];
 			var events = [];
 
@@ -46,20 +46,12 @@ export default async function Get(req, res) {
 				var calendar = await connection.execute('SELECT calendar_id, calendar_name, calendar_color, calendar_id_public FROM calendars WHERE calendar_id_public = ?', [calendarId]);
 
 				var dateParts = req.query.date.split('-');
-				var eventDate = new Date(dateParts[2], parseInt(dateParts[0]) - 1, dateParts[1]);
+				var month = parseInt(dateParts[0]) - 1;
+				var year = parseInt(dateParts[2]);
+				var firstDayOfMonth = new Date(year, month, 1);
+				var lastDayOfMonth = new Date(year, month + 1, 0);
 
-				var weekStart = new Date(eventDate);
-				var weekDayEnd = weekStart.getDay();
-
-				if (weekDayEnd == 0) {
-					weekDayEnd = 7;
-				}
-
-				weekStart.setDate(weekStart.getDate() - weekDayEnd + 1);
-				var weekEnd = new Date(weekStart);
-				weekEnd.setDate(weekEnd.getDate() + 6);
-
-				var eventsCalendar = await connection.execute('SELECT event_start, event_end, event_description, event_date, event_location, event_url, event_name FROM events WHERE calendar_id = ? AND event_date BETWEEN ? AND ?', [calendar[0][0].calendar_id, weekStart, weekEnd]);
+				var eventsCalendar = await connection.execute('SELECT event_start, event_end, event_description, event_date, event_location, event_url, event_name FROM events WHERE calendar_id = ? AND event_date BETWEEN ? AND ?', [calendar[0][0].calendar_id, firstDayOfMonth, lastDayOfMonth]);
 
 				eventsCalendar[0].map((item) => {
 					item.calendar_id = calendar[0][0].calendar_id_public;
