@@ -14,13 +14,23 @@ export default function Events({ events, initialDate }) {
 	}, [new Date().getMinutes()]);
 
 	let dayOfWeek = initialDate.getDay();
-
 	let day = `${initialDate.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[2]}-${initialDate.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[0]}-${initialDate.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[1]}`;
-	console.log('initialDate', events);
+
 	if (dayOfWeek === 0) {
 		dayOfWeek = 7;
 	}
 	dayOfWeek -= 1;
+
+	if (events[day] == undefined) {
+		return (
+			<div className={styles.container}>
+				<hr className={styles.currentTimeLine} style={{ top: `${currentTimePercentage}%` }} />
+				<div className={styles.weekEvents}>
+					<span></span>
+				</div>
+			</div>
+		);
+	}
 
 	return (
 		<div className={styles.container}>
