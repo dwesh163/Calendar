@@ -1,4 +1,4 @@
-import styles from '@/styles/week.module.css';
+import styles from '@/styles/month.module.css';
 import { useEffect, useState } from 'react';
 
 export default function Month({ initialDate, events }) {
@@ -59,11 +59,11 @@ export default function Month({ initialDate, events }) {
 
 	return (
 		<>
-			<div className={styles['week-box']} data-id="1:415">
-				<div className={styles['week-days']} data-id="1:416">
-					<div className={styles['days-rows']} data-id="1:417">
+			<div className={styles['month-box']}>
+				<div className={styles['month-days']}>
+					<div className={styles['days-rows']}>
 						{daysOfWeek.map((dayName) => (
-							<article key={dayName} className={`${styles['day-title']} ${dayName === 'Saturday' || dayName === 'Sunday' ? styles['day-weekend'] : ''}`} style={{ boxShadow: dayName === 'Saturday' ? 'inset 0px -1px 0px #e0e0e0' : '' }}>
+							<article key={dayName} className={`${styles['day-title']} ${dayName === 'Saturday' || dayName === 'Sunday' ? styles['day-weekend'] : ''}`} style={{ boxShadow: dayName === 'Sunday' ? 'inset 0px -1px 0px #e0e0e0' : '' }}>
 								<div className={`${styles['days-names']} inter-bold-sonic-silver-10px`}>{dayName}</div>
 							</article>
 						))}
@@ -74,10 +74,25 @@ export default function Month({ initialDate, events }) {
 						<div className={styles['week']} key={weekIndex} style={{ display: 'flex', justifyContent: 'space-between', height: 'calc(100%/5)' }}>
 							{week.map((day, dayIndex) => {
 								return (
-									<div className={styles['day-box']} key={dayIndex} style={{ width: 'calc(100%/7)', alignItems: 'center' }}>
-										<div className={`${styles['day-current']} ${!isSameMonth(day, currentDate) ? styles['day-not'] : ''} ${day.toDateString() === currentDate.toDateString() ? styles['current-day'] : ''}`}>
-											<div className={`${styles['days-names']} inter-semi-bold-white-11px`} style={{ marginTop: '5px', color: 'black' }}>
+									<div className={`${styles['day-box']} ${!isSameMonth(day, currentDate) ? styles['day-not'] : ''} ${day.toDateString() === new Date().toDateString() ? styles['current-day'] : ''}`} key={dayIndex} style={{ width: 'calc(100%/7)', alignItems: 'center', boxShadow: day.getDay() === 0 ? 'inset 0px -1px 0px #e0e0e0' : '' }}>
+										<div className={`${styles['day-current']}`}>
+											<div className="x2-GXxlPI inter-medium-mountain-mist-21px" data-id="1:748">
 												{day.getDate()}
+											</div>
+											<div className="frame-14" data-id="1:1221">
+												{events[`${day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[2]}-${day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[0]}-${day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[1]}`] ? (
+													<>
+														{events[`${day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[2]}-${day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[0]}-${day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[1]}`].map((eventName, index) => (
+															<article key={index} className="tags-pdNVtl tags" data-id="1:1223">
+																<div className="orange-tag inter-medium-sunshade-14px" style={{ backgroundColor: '#' + eventName.calendar_color + '3c', color: '#' + eventName.calendar_color, fontStyle: 'normal', fontWeight: '500' }}>
+																	{eventName.event_name}
+																</div>
+															</article>
+														))}
+													</>
+												) : (
+													<></>
+												)}
 											</div>
 										</div>
 									</div>

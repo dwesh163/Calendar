@@ -1,0 +1,126 @@
+.mainBox {
+    position: absolute;
+    display: flex;
+    width: 80vw;
+    height: 80vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.month-box {
+    background-color: var(--white);
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin-right: 48.00px;
+    position: relative;
+}
+
+.month-days {
+    align-items: flex-start;
+    background-color: transparent;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 12px;
+    width: 100%;
+    position: relative;
+}
+
+.days-rows {
+    display: inline-flex;
+    flex: 0 0 auto;
+    width: 100%;
+    align-items: flex-start;
+    background-color: transparent;
+    position: relative;
+}
+
+.days-names {
+    background-color: transparent;
+    position: relative;
+    align-self: stretch;
+    letter-spacing: 0.00px;
+    line-height: 12px;
+    margin-top: 5px;
+    text-align: left;
+    font-size: 0.8rem;
+}
+
+.day-title {
+    align-items: flex-start;
+    background-color: var(--white);
+    box-shadow: inset -1px -1px 0px #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    padding: 4px 8px 16px;
+    position: relative;
+    width: calc(100%/7);
+}
+
+.day-not {
+    background-color: #a1a1aa1c;
+
+}
+
+.current-day {
+    background-color: var(--blue50);
+}
+
+.hour-row {
+    align-items: flex-start;
+    background-color: transparent;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 12px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.box-100 {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 12px;
+}
+
+.day-box {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: calc(100%/7);
+    height: 100%;
+    box-shadow: inset -1px -1px 0px #e0e0e0;
+    font-size: 1rem;
+}
+
+.day-current {
+    align-self: stretch;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -1.00px;
+    margin-top: -1.00px;
+    padding: 12px;
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+}
+
+.frame-14 {
+    align-items: flex-start;
+    align-self: stretch;
+    background-color: transparent;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    padding: 2px;
+    position: relative;
+    width: 100%;
+}
