@@ -75,7 +75,7 @@ export default function Loading({ loadingText }) {
 					}
 				})()}
 			</Box>
-			<Box sx={{ height: '10vh', color: '#fff', textAlign: 'center', marginTop: 'auto', fontWeight: '600' }}>
+			<Box sx={{ height: '10vh', color: '#fff', textAlign: 'center', marginTop: 'auto', fontWeight: '600', color: '#fff' }}>
 				<footer>
 					{packageJson.name.toUpperCase()} - {packageJson.version}
 				</footer>
