@@ -1,6 +1,7 @@
 import styles from '@/styles/week.module.css';
 import Events from './events';
 import { Gear } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
 
 const getDaysInWeek = (date) => {
 	const daysArray = [];
@@ -39,8 +40,10 @@ export default function Week({ initialDate, events }) {
 	return (
 		<>
 			<Events events={eventsInWeek} />
-			<div style={{ position: 'absolute', bottom: '15px', right: '30px', color: '#71717a', fontSize: '1.4rem' }}>
-				<Gear />
+			<div style={{ position: 'absolute', bottom: '15px', right: '30px', color: '#71717a', fontSize: '1.4rem', zIndex: '4' }}>
+				<a href="/settings">
+					<Gear />
+				</a>
 			</div>
 			<div className={styles['week-box']} data-id="1:415">
 				<div className={styles['week-days']} data-id="1:416">

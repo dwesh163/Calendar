@@ -1,0 +1,182 @@
+.loading {
+    background-color: #332e30;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.settings {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    background-color: #332e30;
+}
+
+.menu {
+    width: 20vw;
+    background-color: #18181b;
+    border-right: #3f3f3f solid 2px;
+    height: 100%;
+    position: absolute;
+}
+
+.content {
+    width: 100%;
+    background-color: #332e30;
+    padding-left: 20vw;
+}
+
+.title {
+    background-color: transparent;
+    font-family: "Inter";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    white-space: nowrap;
+    width: auto;
+    color: white;
+    display: flex;
+    padding-top: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.titleIcon {
+    color: #868484;
+    margin: 0 5px;
+    height: 40px;
+    font-weight: 900;
+    align-items: center;
+    vertical-align: middle;
+    font-size: 2rem;
+}
+
+.titleText {
+    color: #fff;
+    font-family: "Inter";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.00px;
+    line-height: 40px;
+    text-align: left;
+    height: 40px;
+}
+
+.list {
+    display: flex;
+    width: 100%;
+    padding: 5px 20px 50px 20px;
+    flex-direction: column;
+    position: relative;
+}
+
+.itemList {
+    margin-top: 30px;
+}
+
+.rectangle {
+    margin-top: 4px;
+    height: 41px;
+    position: absolute;
+    width: 5px;
+    background-color: #858484;
+    position: absolute;
+    right: 0;
+    margin-top: 92px;
+}
+
+.item {
+    display: flex;
+    height: 50px;
+    padding-top: 4px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.item:hover {
+    background-color: #86848412;
+    border-radius: 5px;
+}
+
+.itemText {
+    color: #fff;
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.00px;
+    line-height: 40px;
+    text-align: left;
+    height: 40px;
+}
+
+.itemIcon {
+    color: #868484;
+    margin: 0 10px;
+    height: 40px;
+    font-weight: 900;
+    align-items: center;
+    vertical-align: middle;
+    font-size: 1.5rem;
+}
+
+.hr {
+    margin: 0 40px;
+}
+
+.pageTitle {
+    background-color: transparent;
+    font-family: "Inter";
+    background-blend-mode: lighten;
+    color: #868484;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    height: auto;
+    padding: 30px 0 20px 80px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    white-space: nowrap;
+    width: auto;
+}
+
+.mainBox {
+    height: auto;
+    width: 100%;
+    padding: 0 80px;
+}
+
+.mainItem {
+    height: 50px;
+    display: flex;
+    vertical-align: middle;
+}
+
+.mainItemText {
+    color: #fff;
+    font-family: "Inter";
+    align-self: flex-end;
+    width: 150px;
+}
+
+.mainItemContent {
+    color: #858484;
+    font-family: "Inter";
+    width: 150px;
+    font-size: 0.9rem;
+    align-self: flex-end;
+}
+
+.mainItemEdit {
+    color: #858484;
+    font-family: "Inter";
+    width: 150px;
+    font-size: 0.9rem;
+    align-self: flex-end;
+}
