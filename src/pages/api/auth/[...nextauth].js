@@ -5,6 +5,7 @@ import mysql from 'mysql2/promise';
 import { dbConfig } from '../../../../lib/config';
 
 var jwt = require('jsonwebtoken');
+var uaParser = require('ua-parser-js');
 
 async function connectMySQL() {
 	try {
@@ -27,7 +28,7 @@ function generateRandomString(length) {
 	return result;
 }
 
-export const authOptions = {
+export const authOptions = (req) => ({
 	providers: [
 		GithubProvider({
 			clientId: process.env.GITHUB_ID,
@@ -35,7 +36,8 @@ export const authOptions = {
 		}),
 	],
 	callbacks: {
-		async signIn({ user, account, profile }) {
+		async signIn({ user, account, profile, email, credentials }) {
+			console.log('Request headers:', req.headers.host);
 			const connection = await connectMySQL();
 			try {
 				const [existingUser] = await connection.execute('SELECT * FROM users WHERE user_email = ?', [user.email]);
@@ -48,6 +50,19 @@ export const authOptions = {
 					const userId = rows[0].user_id;
 					await connection.execute('INSERT INTO calendars (calendar_name, calendar_id_public, calendar_color, calendar_user_id) VALUES (?, ?, ?, ?)', ['Calendar 1', uuidv4(), 'a855f7', userId]);
 				}
+
+				var deviceInfo = uaParser(req.headers['user-agent']);
+				console.log(deviceInfo);
+				const [rows] = await connection.execute('SELECT user_id FROM users WHERE user_email = ?', [user.email]);
+				const userId = rows[0].user_id;
+
+				if (!deviceInfo.device.vendor) {
+					deviceInfo.device.vendor = '';
+				}
+
+				console.log(req.headers.host, deviceInfo.os.name, deviceInfo.os.version, deviceInfo.device.vendor, deviceInfo.browser.name, deviceInfo.browser.version, userId);
+
+				await connection.execute('INSERT INTO devices (devices_ip, devices_os_name, devices_os_version, devices_vendor, devices_browser_name, devices_browser_version, devices_user_id) VALUES (?, ?, ?, ?, ?, ?, ?)', [req.headers.host, deviceInfo.os.name, deviceInfo.os.version, deviceInfo.device.vendor, deviceInfo.browser.name, deviceInfo.browser.version, userId]);
 
 				return Promise.resolve(true);
 			} catch (error) {
@@ -87,6 +102,6 @@ export const authOptions = {
 			return session;
 		},
 	},
-};
+});
 
-export default NextAuth(authOptions);
+export default (req, res) => NextAuth(req, res, authOptions(req));
