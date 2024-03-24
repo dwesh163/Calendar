@@ -34,6 +34,20 @@ CREATE TABLE IF NOT EXISTS events (
 	PRIMARY KEY (event_id)
 );
 
+CREATE TABLE IF NOT EXISTS devices (
+	devices_id int NOT NULL UNIQUE AUTO_INCREMENT,
+	devices_ip varchar(100),
+	devices_os_name varchar(100),
+	devices_os_version varchar(100),
+	devices_vendor varchar(100),
+	devices_browser_name varchar(100),
+	devices_browser_version varchar(100),
+	devices_user_id INT NOT NULL,
+	PRIMARY KEY (devices_id)
+);
+
 ALTER TABLE calendars ADD CONSTRAINT calendars_fk3 FOREIGN KEY (calendar_user_id) REFERENCES users(user_id);
+
+ALTER TABLE devices ADD CONSTRAINT devices_fk3 FOREIGN KEY (devices_user_id) REFERENCES users(user_id);
 
 ALTER TABLE events ADD CONSTRAINT events_fk8 FOREIGN KEY (calendar_id) REFERENCES calendars(calendar_id);
