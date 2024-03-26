@@ -16,8 +16,6 @@ CREATE TABLE IF NOT EXISTS users (
 	user_provider varchar(30) NOT NULL,
 	user_company varchar(30) NOT NULL,
 	user_name varchar(150) NOT NULL,
-	user_key_private varchar(32) NOT NULL,
-	user_key_public varchar(32) NOT NULL,
 	PRIMARY KEY (user_id)
 );
 
