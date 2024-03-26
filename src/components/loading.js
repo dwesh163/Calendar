@@ -8,8 +8,8 @@ import styles from '@/styles/loading.module.css';
 
 import packageJson from '/package.json';
 
-function MainCircularProgress(props) {
-	const { height } = props;
+function MainCircularProgress() {
+	const height = 200;
 	const circleSize = height * 0.15;
 
 	return (
@@ -21,7 +21,7 @@ function MainCircularProgress(props) {
 				}}
 				size={circleSize}
 				thickness={4}
-				{...props}
+				height={height}
 				value={100}
 			/>
 			<CircularProgress
@@ -37,7 +37,7 @@ function MainCircularProgress(props) {
 				}}
 				size={circleSize}
 				thickness={4}
-				{...props}
+				height={height}
 			/>
 		</Box>
 	);

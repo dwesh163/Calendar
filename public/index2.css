@@ -1,0 +1,1091 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@import url("https://fonts.googleapis.com/css?family=Inter:500,700,600,400");
+
+/* The following line is used to measure usage of this code. You can remove it if you want. */
+@import url("https://px.animaapp.com/65f14e7581d354160ac606b1.65f14e7681d354160ac606b4.q3IQClY.hch.png");
+
+
+.screen textarea:focus,
+.screen input:focus {
+    outline: none;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+}
+
+#__next {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    background-color: #332e30;
+}
+
+.screen * {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+}
+
+.screen div {
+    -webkit-text-size-adjust: none;
+}
+
+.component-wrapper a {
+    display: contents;
+    pointer-events: auto;
+    text-decoration: none;
+}
+
+.component-wrapper * {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.component-wrapper a *,
+.component-wrapper input,
+.component-wrapper video,
+.component-wrapper iframe {
+    pointer-events: auto;
+}
+
+.component-wrapper.not-ready,
+.component-wrapper.not-ready * {
+    visibility: hidden !important;
+}
+
+.screen a {
+    display: contents;
+    text-decoration: none;
+}
+
+.full-width-a {
+    width: 100%;
+}
+
+.full-height-a {
+    height: 100%;
+}
+
+.container-center-vertical {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    pointer-events: none;
+}
+
+.container-center-vertical>* {
+    flex-shrink: 0;
+    pointer-events: auto;
+}
+
+.container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+}
+
+.container-center-horizontal>* {
+    flex-shrink: 0;
+    pointer-events: auto;
+}
+
+.auto-animated div {
+    --z-index: -1;
+    opacity: 0;
+    position: absolute;
+}
+
+.auto-animated input {
+    --z-index: -1;
+    opacity: 0;
+    position: absolute;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+    opacity: 1;
+}
+
+.overlay-base {
+    display: none;
+    height: 100%;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.overlay-base.animate-appear {
+    align-items: center;
+    animation: reveal 0.3s ease-in-out 1 normal forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+}
+
+.overlay-base.animate-disappear {
+    animation: reveal 0.3s ease-in-out 1 reverse forwards;
+    display: block;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.overlay-base.animate-disappear * {
+    pointer-events: none;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.animate-nodelay {
+    animation-delay: 0s;
+}
+
+.align-self-flex-start {
+    align-self: flex-start;
+}
+
+.align-self-flex-end {
+    align-self: flex-end;
+}
+
+.align-self-flex-center {
+    align-self: flex-center;
+}
+
+.valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.valign-text-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+input:focus {
+    outline: none;
+}
+
+.listeners-active,
+.listeners-active * {
+    pointer-events: auto;
+}
+
+.hidden,
+.hidden * {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.smart-layers-pointers,
+.smart-layers-pointers * {
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.listeners-active-click,
+.listeners-active-click * {
+    cursor: pointer;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #000000;
+    --gunsmoke: #858484;
+    --tamarind: #361717;
+    --white: #ffffff;
+
+    --font-size-m: 16px;
+    --font-size-s: 13px;
+
+    --font-family-inter: "Inter", Helvetica;
+}
+
+.inter-normal-gunsmoke-13px {
+    color: var(--gunsmoke);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-s);
+    font-style: normal;
+    font-weight: 400;
+}
+
+.inter-medium-tamarind-16px {
+    color: var(--tamarind);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 500;
+}
+
+.inter-medium-white-16px {
+    color: var(--white);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 500;
+}
+
+.inter-normal-tamarind-16px {
+    color: var(--tamarind);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 400;
+}
+
+.inter-normal-white-16px {
+    color: var(--white);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 400;
+}
+
+:root {}
+
+.group-1-9MMcGd {
+    background-color: transparent;
+    height: 400px;
+    left: 177px;
+    position: absolute;
+    top: 338px;
+    width: 707px;
+}
+
+.white-page-0dvHnF {
+    background-color: transparent;
+    height: 400px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 700px;
+}
+
+.rectangle-1-Yt7K9Y {
+    background-color: #f3f3f3;
+    height: 400px;
+    width: 700px;
+}
+
+.rectangle-3-Yt7K9Y {
+    background-color: var(--white);
+    border-bottom-style: none;
+    border-color: #dadada;
+    border-left-style: none;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-style: none;
+    height: 402px;
+    left: -1px;
+    position: absolute;
+    top: -1px;
+    width: 252px;
+}
+
+.vector-0dvHnF {
+    height: 20px;
+    left: 12px;
+    top: 20px;
+    width: 20px;
+}
+
+.settings-0dvHnF {
+    color: var(--tamarind);
+}
+
+.account-0dvHnF {
+    color: #2610b2;
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 700;
+    height: auto;
+    left: 317px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 31px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.account-GHl3px {
+    height: 20px;
+    left: 22px;
+    top: 77px;
+    width: 105px;
+}
+
+.account-09NsSO {
+    color: var(--tamarind);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 600;
+    height: auto;
+    left: 37px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 1px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.vector-09NsSO {
+    height: 20px;
+    left: 0px;
+    top: 0px;
+    width: 20px;
+}
+
+.notifications-0dvHnF {
+    height: 19px;
+    left: 59px;
+    top: 122px;
+    width: 98px;
+}
+
+.notifications-9lAPHK {
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.ads-0dvHnF {
+    height: 19px;
+    left: 59px;
+    top: 166px;
+    width: 32px;
+}
+
+.ads-0xk5Mr {
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.security-0dvHnF {
+    height: 19px;
+    left: 59px;
+    top: 210px;
+    width: 65px;
+}
+
+.security-7wndWQ {
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.advanced-settings-0dvHnF {
+    height: 19px;
+    left: 59px;
+    top: 254px;
+    width: 144px;
+}
+
+.advanced-settings-SOTkVW {
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.logout-0dvHnF {
+    height: 19px;
+    left: 59px;
+    top: 298px;
+    width: 50px;
+}
+
+.logout-WBfSD7 {
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.rectangle-4-0dvHnF {
+    background-color: #2610b2;
+}
+
+.line-1-0dvHnF {
+    left: 295px;
+    width: 406px;
+}
+
+.vector-GHl3px {
+    height: 15px;
+    left: 632px;
+    top: 271px;
+    width: 33px;
+}
+
+.save-preferences-0dvHnF {
+    height: 27px;
+    left: 519px;
+    top: 324px;
+    width: 148px;
+}
+
+.rectangle-5-EKcDRt {
+    background-color: #d9d9d9;
+}
+
+.save-preferences-EKcDRt {
+    height: auto;
+    left: 8px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 4px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.undo-changes-0dvHnF {
+    height: 16px;
+    left: 411px;
+    top: 329px;
+    width: 89px;
+}
+
+.undo-changes-iZJDwd {
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 0px;
+    width: auto;
+}
+
+.vector-sxxihO {
+    height: 20px;
+    left: 22px;
+    top: 121px;
+    width: 20px;
+}
+
+.vector-MaToSU {
+    height: 20px;
+    left: 22px;
+    top: 165px;
+    width: 20px;
+}
+
+.vector-2VtAx1 {
+    height: 20px;
+    left: 22px;
+    top: 209px;
+    width: 20px;
+}
+
+.vector-FBPTBE {
+    height: 20px;
+    left: 22px;
+    top: 253px;
+    width: 20px;
+}
+
+.vector-HV6KaU {
+    height: 20px;
+    left: 22px;
+    top: 297px;
+    width: 20px;
+}
+
+.group-2-9MMcGd {
+    background-color: transparent;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.dark-page-VaFnxr {
+    background-color: transparent;
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+
+.rectangle-1-G0cGXq {
+    background-color: #332e30;
+    height: 100%;
+    width: 100%;
+}
+
+.rectangle-3-G0cGXq {
+    background-color: transparent;
+    height: 407px;
+    left: -0px;
+    position: absolute;
+    top: -0px;
+    width: 251px;
+}
+
+.vector-VaFnxr {
+    height: 20px;
+    left: 22px;
+    top: 21px;
+    width: 20px;
+}
+
+.settings-VaFnxr {
+    color: var(--white);
+}
+
+.account-VaFnxr {
+    background-blend-mode: lighten;
+    color: #868484;
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 700;
+    height: auto;
+    left: 317px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 31px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.account-PuqSHl {
+    height: 20px;
+    left: 22px;
+    top: 77px;
+    width: 105px;
+}
+
+.account-okVJcv {
+    color: var(--white);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 600;
+    height: auto;
+    left: 37px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 1px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.vector-okVJcv {
+    height: 20px;
+    left: 0px;
+    top: 0px;
+    width: 20px;
+}
+
+.notifications-VaFnxr {
+    height: 19px;
+    left: 59px;
+    top: 122px;
+    width: 98px;
+}
+
+.notifications-AvWp1t {
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.ads-VaFnxr {
+    height: 19px;
+    left: 59px;
+    top: 166px;
+    width: 32px;
+}
+
+.ads-dHxkwm {
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.security-VaFnxr {
+    height: 19px;
+    left: 59px;
+    top: 210px;
+    width: 65px;
+}
+
+.security-wxPJvx {
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.advanced-settings-VaFnxr {
+    height: 19px;
+    left: 59px;
+    top: 254px;
+    width: 144px;
+}
+
+.advanced-settings-sKpD4Y {
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.logout-VaFnxr {
+    height: 19px;
+    left: 59px;
+    top: 298px;
+    width: 50px;
+}
+
+.logout-Bs5w5F {
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.rectangle-4-VaFnxr {
+    background-color: var(--gunsmoke);
+}
+
+.line-1-VaFnxr {
+    left: 288px;
+    width: 623px;
+}
+
+.vector-PuqSHl {
+    height: 15px;
+    left: 632px;
+    top: 271px;
+    width: 33px;
+}
+
+.save-preferences-VaFnxr {
+    height: 27px;
+    left: 519px;
+    top: 324px;
+    width: 148px;
+}
+
+.rectangle-5-u8DUwx {
+    background-color: #5d5c5c;
+}
+
+.save-preferences-u8DUwx {
+    height: auto;
+    left: 8px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 4px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.undo-changes-VaFnxr {
+    height: 16px;
+    left: 411px;
+    top: 329px;
+    width: 89px;
+}
+
+.undo-changes-eLbWLQ {
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    text-align: left;
+    top: 0px;
+    width: auto;
+}
+
+.vector-geZFAQ {
+    height: 20px;
+    left: 22px;
+    top: 121px;
+    width: 20px;
+}
+
+.vector-Oh2MVs {
+    height: 20px;
+    left: 22px;
+    top: 165px;
+    width: 20px;
+}
+
+.vector-iGSLEr {
+    height: 20px;
+    left: 22px;
+    top: 209px;
+    width: 20px;
+}
+
+.vector-5mcn8b {
+    height: 20px;
+    left: 22px;
+    top: 253px;
+    width: 20px;
+}
+
+.vector-OmAWR8 {
+    height: 20px;
+    left: 22px;
+    top: 297px;
+    width: 20px;
+}
+
+.account {
+    background-color: transparent;
+    position: absolute;
+}
+
+.account-date {
+    background-color: transparent;
+    height: 19px;
+    left: 317px;
+    position: absolute;
+    top: 225px;
+    width: 354px;
+}
+
+.account-email {
+    background-color: transparent;
+    height: 19px;
+    left: 317px;
+    position: absolute;
+    top: 181px;
+    width: 354px;
+}
+
+.account-name {
+    background-color: transparent;
+    height: 19px;
+    left: 317px;
+    position: absolute;
+    top: 93px;
+    width: 354px;
+}
+
+.account-username {
+    background-color: transparent;
+    height: 19px;
+    left: 317px;
+    position: absolute;
+    top: 137px;
+    width: 354px;
+}
+
+.ads {
+    background-color: transparent;
+    position: absolute;
+}
+
+.advanced-settings {
+    background-color: transparent;
+    position: absolute;
+}
+
+.date-of-bhird {
+    background-color: transparent;
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.edit {
+    background-color: transparent;
+    height: auto;
+    left: 324px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 0px;
+    width: auto;
+}
+
+.email {
+    background-color: transparent;
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.line-1 {
+    background-color: transparent;
+    height: 1px;
+    object-fit: cover;
+    position: absolute;
+    top: 63px;
+}
+
+.line-2 {
+    background-color: transparent;
+    height: 1px;
+    left: 0px;
+    object-fit: cover;
+    position: absolute;
+    top: 14px;
+    width: 64px;
+}
+
+.line-3 {
+    background-color: transparent;
+    height: 1px;
+    left: 73px;
+    object-fit: cover;
+    position: absolute;
+    top: 14px;
+    width: 12px;
+}
+
+.logout {
+    background-color: transparent;
+    position: absolute;
+}
+
+.name {
+    background-color: transparent;
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.notifications {
+    background-color: transparent;
+    position: absolute;
+}
+
+.private-account {
+    background-color: transparent;
+    height: auto;
+    left: 318px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 269px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.rectangle-1 {
+    left: 0px;
+    position: absolute;
+    top: 0px;
+}
+
+.rectangle-4 {
+    height: 30px;
+    left: 245px;
+    position: absolute;
+    top: 72px;
+    width: 5px;
+}
+
+.rectangle-5 {
+    height: 27px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 146px;
+}
+
+.save-preferences {
+    background-color: transparent;
+    position: absolute;
+}
+
+.security {
+    background-color: transparent;
+    position: absolute;
+}
+
+.settings {
+    background-color: transparent;
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 700;
+    height: auto;
+    left: 59px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 21px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.undo-changes {
+    background-color: transparent;
+    position: absolute;
+}
+
+.username {
+    background-color: transparent;
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.vector {
+    background-color: transparent;
+    position: absolute;
+}
+
+.victor-xavier {
+    background-color: transparent;
+    height: auto;
+    left: 127px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 0px;
+    width: auto;
+}
+
+.victor99 {
+    background-color: transparent;
+    height: auto;
+    left: 127px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 0px;
+    width: auto;
+}
+
+.victorxav01gmailcom {
+    background-color: transparent;
+    height: auto;
+    left: 127px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 0px;
+    width: auto;
+}
+
+.x18-january-1999 {
+    background-color: transparent;
+    height: auto;
+    left: 127px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 0px;
+    width: auto;
+}

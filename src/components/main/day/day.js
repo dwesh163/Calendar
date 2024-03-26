@@ -30,7 +30,7 @@ export default function Day({ initialDate, events }) {
 					{timeRow.map((time, index) => (
 						<div style={{ height: `calc(100% / ${timeRow.length})` }} key={index} className={styles['hour-row']} data-id="1:428">
 							<div className="time-BdLsfm valign-text-middle time text-xsmedium" data-id="1:429">
-								{time} AM
+								<span className="time">{time} AM</span>
 							</div>
 							<div className="blocks">
 								<div key={index} className={styles['x60-block']}>
