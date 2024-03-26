@@ -64,20 +64,9 @@ export const authOptions = {
 				const [existingUser] = await connection.execute('SELECT * FROM users WHERE user_email = ?', [session.user.email]);
 				const [calendarsId] = await connection.execute('SELECT calendar_id_public FROM calendars WHERE calendar_user_id = ?', [existingUser[0].user_id]);
 				if (existingUser.length) {
-					const payload = {
-						time: new Date().getTime(),
-						id: existingUser[0].user_id_public,
-						key: existingUser[0].user_key_private,
-						calendarId: calendarsId.map((item) => item.calendar_id_public),
-					};
-
-					const secretKey = existingUser[0].user_key_private;
-					const token = jwt.sign(payload, secretKey, { algorithm: 'HS256' });
-
 					session.user.id = existingUser[0].user_id_public;
 					session.user.username = existingUser[0].user_username;
 					session.user.calendarId = calendarsId.map((item) => item.calendar_id_public);
-					session.token = token;
 				}
 			} catch (error) {
 				console.error('Error during session creation:', error);
