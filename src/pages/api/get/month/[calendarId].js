@@ -18,10 +18,6 @@ export default async function Get(req, res) {
 	const connection = await connectMySQL();
 	const session = await getSession({ req });
 
-	if (!req.headers.user) {
-		return res.status(401).send('unauthorized');
-	}
-
 	try {
 		var user = await connection.execute('SELECT * FROM users WHERE user_id_public = ?', [session.user.id]);
 		user = user[0][0];

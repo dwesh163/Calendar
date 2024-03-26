@@ -119,19 +119,11 @@ export default function Home() {
 		console.log(searchContent, selectedMenu, selectedDay);
 	}, [searchContent, selectedMenu, selectedDay]);
 
-	// useEffect(() => {
-	// 	if (status == 'authenticated') {
-	// 		fetch(`/api/create`, { method: 'POST', headers: { token: session.token, user: session.user.id }, body: JSON.stringify({ from: '02-20-204', to: '02-20-2024', timeFrom: '12:00', timeTo: '16:00' }) });
-	// 	}
-	// }, [status]);
-
 	useEffect(() => {
 		if (status === 'authenticated') {
 			const fetchMonth = async () => {
 				try {
-					const response = await fetch(`/api/get/month/${session.user.calendarId.join(':')}?date=${selectedDay.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-')}`, {
-						headers: { token: session.token, user: session.user.id },
-					});
+					const response = await fetch(`/api/get/month/${session.user.calendarId.join(':')}?date=${selectedDay.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-')}`, {});
 					if (!response.ok) {
 						throw new Error('Failed to fetch calendar data');
 					}
@@ -153,9 +145,7 @@ export default function Home() {
 		if (status === 'authenticated') {
 			const fetchLite = async () => {
 				try {
-					const response = await fetch(`/api/get/lite/${session.user.calendarId.join(':')}?date=${selectedDay.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-')}`, {
-						headers: { token: session.token, user: session.user.id },
-					});
+					const response = await fetch(`/api/get/lite/${session.user.calendarId.join(':')}?date=${selectedDay.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-')}`, {});
 					if (!response.ok) {
 						throw new Error('Failed to fetch calendar data');
 					}
@@ -177,9 +167,7 @@ export default function Home() {
 		if (status === 'authenticated') {
 			const fetchLists = async () => {
 				try {
-					const response = await fetch(`/api/get/lists/${session.user.calendarId.join(':')}?date=${new Date().toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-')}`, {
-						headers: { token: session.token, user: session.user.id },
-					});
+					const response = await fetch(`/api/get/lists/${session.user.calendarId.join(':')}?date=${new Date().toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-')}`, {});
 					if (!response.ok) {
 						throw new Error('Failed to fetch calendar data');
 					}
