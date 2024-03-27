@@ -1,5 +1,6 @@
 import mysql from 'mysql2/promise';
 import { dbConfig } from '../../../../../lib/config';
+import { getSession } from 'next-auth/react';
 
 var jwt = require('jsonwebtoken');
 
@@ -15,28 +16,22 @@ async function connectMySQL() {
 
 export default async function GetSettings(req, res) {
 	const connection = await connectMySQL();
-
-	if (!req.headers.user) {
-		return res.status(401).send('unauthorized');
-	}
+	const session = await getSession({ req });
 
 	try {
-		var user = await connection.execute('SELECT user_id, user_email, user_username, user_image, user_provider, user_company, user_name, user_key_private, user_id_public FROM users WHERE user_id_public = ?', [req.headers.user]);
-		user = user[0][0];
+		var user = await connection.execute('SELECT user_id, user_email, user_username, user_image, user_provider, user_company, user_name FROM users WHERE user_id_public = ?', [session.user.id]);
 
 		if (user == undefined) {
 			return res.status(401).send('unauthorized');
 		}
 
-		var decoded = jwt.verify(req.headers.token, user.user_key_private);
+		var devices = await connection.execute('SELECT * FROM devices WHERE devices_user_id = ?', [user[0][0].user_id]);
 
-		if (decoded.id == user.user_id_public && decoded.id == req.headers.user) {
-			delete user.user_key_private;
-			delete user.user_id_public;
-			return res.status(200).send(user);
-		} else {
-			return res.status(401).send('unauthorized');
-		}
+		const settings = {
+			user: user[0][0],
+			devices: devices[0],
+		};
+		return res.status(200).send(settings);
 	} catch (error) {
 		console.log(error);
 		return res.status(401).send('unauthorized');
