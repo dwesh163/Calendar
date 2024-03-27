@@ -116,7 +116,7 @@ export default function Side({ calendars, initialDate, events, eventsLite }) {
 							return (
 								<div className={styles['day-box']} key={dayIndex}>
 									{new Date().getDate() === day.getDate() && new Date().getMonth() === day.getMonth() && new Date().getFullYear() === day.getFullYear() ? (
-										<div class={styles['day-current']}>
+										<div class={styles['day-current']} style={{ height: eventsForDay ? '33px' : '' }}>
 											<div className={`${!isSameMonth(day, currentDate) ? styles['day-not'] : ''} valign-text-middle inter-semi-bold-white-11px`} style={{ marginTop: '5px' }}>
 												{day.getDate()}
 											</div>
