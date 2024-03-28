@@ -37,7 +37,6 @@ export const authOptions = (req) => ({
 	],
 	callbacks: {
 		async signIn({ user, account, profile, email, credentials }) {
-			console.log('Request headers:', req.headers.host);
 			const connection = await connectMySQL();
 			try {
 				const [existingUser] = await connection.execute('SELECT * FROM users WHERE user_email = ?', [user.email]);
@@ -52,17 +51,15 @@ export const authOptions = (req) => ({
 				}
 
 				var deviceInfo = uaParser(req.headers['user-agent']);
-				console.log(deviceInfo);
-				const [rows] = await connection.execute('SELECT user_id FROM users WHERE user_email = ?', [user.email]);
-				const userId = rows[0].user_id;
 
-				if (!deviceInfo.device.vendor) {
-					deviceInfo.device.vendor = '';
-				}
+				deviceInfo.os.version = deviceInfo.os.version || '';
+				deviceInfo.device.vendor = deviceInfo.device.vendor || '';
+				deviceInfo.device.model = deviceInfo.device.model || '';
+				deviceInfo.device.type = deviceInfo.device.type || '';
 
-				console.log(req.headers.host, deviceInfo.os.name, deviceInfo.os.version, deviceInfo.device.vendor, deviceInfo.browser.name, deviceInfo.browser.version, userId);
+				console.log(req.headers.host, deviceInfo.os.name, deviceInfo.os.version, deviceInfo.device.vendor, deviceInfo.browser.name, deviceInfo.browser.version, uuidv4(), existingUser[0].user_id);
 
-				await connection.execute('INSERT INTO devices (devices_ip, devices_os_name, devices_os_version, devices_vendor, devices_browser_name, devices_browser_version, devices_user_id) VALUES (?, ?, ?, ?, ?, ?, ?)', [req.headers.host, deviceInfo.os.name, deviceInfo.os.version, deviceInfo.device.vendor, deviceInfo.browser.name, deviceInfo.browser.version, userId]);
+				await connection.execute('INSERT INTO devices (devices_ip, devices_os_name, devices_os_version, devices_vendor, devices_browser_name, devices_browser_version, devices_public_id, devices_user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [req.headers.host, deviceInfo.os.name, deviceInfo.os.version, deviceInfo.device.vendor, deviceInfo.browser.name, deviceInfo.browser.version, uuidv4(), existingUser[0].user_id]);
 
 				return Promise.resolve(true);
 			} catch (error) {
@@ -75,6 +72,7 @@ export const authOptions = (req) => ({
 
 		async session({ session, token, user }) {
 			const connection = await connectMySQL();
+
 			try {
 				const [existingUser] = await connection.execute('SELECT * FROM users WHERE user_email = ?', [session.user.email]);
 				const [calendarsId] = await connection.execute('SELECT calendar_id_public FROM calendars WHERE calendar_user_id = ?', [existingUser[0].user_id]);
