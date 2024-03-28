@@ -43,6 +43,16 @@ CREATE TABLE IF NOT EXISTS devices (
 	devices_user_id INT NOT NULL,
 	PRIMARY KEY (devices_id)
 );
+CREATE TABLE IF NOT EXISTS api (
+    api_id INT NOT NULL UNIQUE AUTO_INCREMENT,
+    api_key VARCHAR(32) NOT NULL UNIQUE,
+    api_limit INT NOT NULL DEFAULT 100,
+    api_used INT NOT NULL DEFAULT 0,
+    api_last_used DATETIME,
+    api_date_created DATETIME NOT NULL,
+    api_user_id INT NOT NULL,
+	PRIMARY KEY (api_id)
+);
 
 ALTER TABLE calendars ADD CONSTRAINT calendars_fk3 FOREIGN KEY (calendar_user_id) REFERENCES users(user_id);
 
