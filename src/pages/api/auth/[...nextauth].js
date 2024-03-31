@@ -44,7 +44,7 @@ export const authOptions = (req) => ({
 				if (existingUser.length) {
 					await connection.execute('UPDATE users SET user_username = ?, user_image = ?, user_provider = ?, user_company = ?, user_name = ? WHERE user_email = ?', [profile.login, user.image, account.provider, profile.company, profile.name, user.email]);
 				} else {
-					await connection.execute('INSERT INTO users (user_id_public, user_email, user_username, user_image, user_provider, user_company, user_name, user_key_private, user_key_public) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [uuidv4(), user.email, profile.login, user.image, account.provider, profile.company, profile.name, generateRandomString(32), generateRandomString(32)]);
+					await connection.execute('INSERT INTO users (user_id_public, user_email, user_username, user_image, user_provider, user_company, user_name) VALUES (?, ?, ?, ?, ?, ?, ?)', [uuidv4(), user.email, profile.login, user.image, account.provider, profile.company, profile.name]);
 					const [rows] = await connection.execute('SELECT user_id FROM users WHERE user_email = ?', [user.email]);
 					const userId = rows[0].user_id;
 					await connection.execute('INSERT INTO calendars (calendar_name, calendar_id_public, calendar_color, calendar_user_id) VALUES (?, ?, ?, ?)', ['Calendar 1', uuidv4(), 'a855f7', userId]);
@@ -57,11 +57,13 @@ export const authOptions = (req) => ({
 				deviceInfo.device.model = deviceInfo.device.model || '';
 				deviceInfo.device.type = deviceInfo.device.type || '';
 
-				console.log(req.headers.host, deviceInfo.os.name, deviceInfo.os.version, deviceInfo.device.vendor, deviceInfo.browser.name, deviceInfo.browser.version, uuidv4(), existingUser[0].user_id);
-
 				await connection.execute('INSERT INTO devices (devices_ip, devices_os_name, devices_os_version, devices_vendor, devices_browser_name, devices_browser_version, devices_public_id, devices_user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [req.headers.host, deviceInfo.os.name, deviceInfo.os.version, deviceInfo.device.vendor, deviceInfo.browser.name, deviceInfo.browser.version, uuidv4(), existingUser[0].user_id]);
 
-				return Promise.resolve(true);
+				if (profile.login == process.env.SUPER_ADMIN) {
+					return Promise.resolve(true);
+				}
+
+				return Promise.resolve(false);
 			} catch (error) {
 				console.error('Error during sign-in:', error);
 				return Promise.resolve(false);
