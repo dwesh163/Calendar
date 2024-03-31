@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import styles from '@/styles/settings.module.css';
+import 'swagger-ui-react/swagger-ui.css';
+
+const SwaggerUI = dynamic(() => import('swagger-ui-react'), { ssr: false });
 
 export default function Api() {
 	const [apis, setApis] = useState([]);
@@ -55,9 +59,14 @@ export default function Api() {
 				<>
 					<div key={index}>{api.api_key}</div>
 					<div key={index}>{new Date(api.api_date_created).toLocaleString('fr-FR', { timeZone: 'Europe/Paris' })}</div>
+					<div key={index}>{api.api_used}</div>
+					<div key={index}>{api.api_last_used != null ? new Date(api.api_last_used).toLocaleString('fr-FR', { timeZone: 'Europe/Paris' }) : 'never'}</div>
 					<br />
 				</>
 			))}
+			<div className={styles.apiBox}>
+				<SwaggerUI url="./swagger.json" />
+			</div>
 		</div>
 	);
 }
