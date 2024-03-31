@@ -1,0 +1,6196 @@
+        /* SCROLLBAR */
+
+        [dark-scroll]::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        [dark-scroll]::-webkit-scrollbar-track-piece {
+            background-color: #2b2b2b;
+            border: 1px solid #1d1d1d;
+        }
+
+        [dark-scroll]::-webkit-scrollbar-thumb {
+            height: 10px;
+            background-color: #4d4d4d;
+        }
+
+        [dark-scroll]::-webkit-scrollbar-thumb:hover {
+            background-color: #5a5a5a;
+        }
+
+        /* LOAD PROGRESS */
+
+        .turbolinks-progress-bar {
+            height: 3px;
+            background-color: #ff6250;
+        }
+
+        /* GROUPING */
+
+        [data-id].ui-selecting {
+            box-shadow: inset 0 0 0 1px #4285f4 !important;
+        }
+
+        [data-id].ui-selected {
+            box-shadow: inset 0 0 0 1px #4285f4 !important;
+        }
+
+        /* CURSOR */
+
+        body[mode='comments'] * {
+            cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjkxNjQ4IDIzLjQxMDlDNS40OTE1MyAyMi45ODg3IDUuOTMxNzkgMjIuMzkzNSA2LjIzMjggMjEuNjQwN0M0Ljc5MDY5IDE5LjczODMgNCAxNy4zOTMzIDQgMTQuOTk3NUM0IDguOTM0MSA4LjkzMjgyIDQgMTUuMDAyMiA0QzIxLjA3MTcgNCAyNiA4LjkzOTE5IDI2IDE1LjAwMjVDMjYgMjEuMDY1OSAyMS4wNjcyIDI2IDE0Ljk5NzggMjZDMTIuOTg5NiAyNiAxMS4wMzUzIDI1LjQ1NTcgOS4zMjM2NyAyNC40MjMxQzguNDI5NjUgMjQuOTU3MiA3LjQxNDM0IDI1LjIyNjggNi4zMDAxOCAyNS4yMjY4QzUuOTU0MjYgMjUuMjI2OCA1LjU5OTM1IDI1LjIwMTQgNS4yNTM0MiAyNS4xNDU0QzQuOTAzIDI1LjA4OTUgNC42Mjg5NiAyNC44MDQ2IDQuNTUyNTggMjQuNDE4QzQuNDc2MjEgMjQuMDI2NCA0LjYxOTk3IDIzLjYyOTYgNC45MTY0OCAyMy40MTA5WiIgZmlsbD0iI0ZGNjI1MCIvPgo8L3N2Zz4K') 0 24,
+                auto !important;
+        }
+
+        body[mode='code'] [data-id]:not(.hidden) {
+            cursor: default;
+        }
+
+        /* default node state */
+
+        body[mode='code'] [data-id]:not(.hidden),
+        body[mode='comments'] [data-id]:not(.hidden) {
+            pointer-events: all;
+        }
+
+        /* is_image */
+
+        body[mode='code'] [data-id].is_image [data-id],
+        body[mode='comments'] [data-id].is_image [data-id] {
+            pointer-events: none !important;
+        }
+
+        /* without a data-id or ignored */
+
+        [data-id].ignore,
+        body[mode='code'] *:not([data-id]) {
+            pointer-events: none !important;
+        }
+
+        /* disable transforms for ignored elements */
+
+
+        body[mode='code'] [data-id]:hover {
+            transform: none !important;
+        }
+
+        div[class^='i-o-sparts'] {
+            pointer-events: none !important;
+        }
+
+        @import url("https://fonts.googleapis.com/css?family=Inter:500,700,600,400");
+
+        .screen textarea:focus,
+        .screen input:focus {
+            outline: none;
+        }
+
+        .screen * {
+            -webkit-font-smoothing: antialiased;
+            box-sizing: border-box;
+        }
+
+        .screen div {
+            -webkit-text-size-adjust: none;
+        }
+
+        .component-wrapper a {
+            display: contents;
+            pointer-events: auto;
+            text-decoration: none;
+        }
+
+        .component-wrapper * {
+            -webkit-font-smoothing: antialiased;
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+
+        .component-wrapper a *,
+        .component-wrapper input,
+        .component-wrapper video,
+        .component-wrapper iframe {
+            pointer-events: auto;
+        }
+
+        .component-wrapper.not-ready,
+        .component-wrapper.not-ready * {
+            visibility: hidden !important;
+        }
+
+        .screen a {
+            display: contents;
+            text-decoration: none;
+        }
+
+        .full-width-a {
+            width: 100%;
+        }
+
+        .full-height-a {
+            height: 100%;
+        }
+
+        .container-center-vertical {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .container-center-vertical>* {
+            flex-shrink: 0;
+            pointer-events: auto;
+        }
+
+        .container-center-horizontal {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            pointer-events: none;
+            width: 100%;
+        }
+
+        .container-center-horizontal>* {
+            flex-shrink: 0;
+            pointer-events: auto;
+        }
+
+        .auto-animated div {
+            --z-index: -1;
+            opacity: 0;
+            position: absolute;
+        }
+
+        .auto-animated input {
+            --z-index: -1;
+            opacity: 0;
+            position: absolute;
+        }
+
+        .auto-animated .container-center-vertical,
+        .auto-animated .container-center-horizontal {
+            opacity: 1;
+        }
+
+        .overlay-base {
+            display: none;
+            height: 100%;
+            opacity: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .overlay-base.animate-appear {
+            align-items: center;
+            animation: reveal 0.3s ease-in-out 1 normal forwards;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+        }
+
+        .overlay-base.animate-disappear {
+            animation: reveal 0.3s ease-in-out 1 reverse forwards;
+            display: block;
+            opacity: 1;
+            pointer-events: none;
+        }
+
+        .overlay-base.animate-disappear * {
+            pointer-events: none;
+        }
+
+        @keyframes reveal {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .animate-nodelay {
+            animation-delay: 0s;
+        }
+
+        .align-self-flex-start {
+            align-self: flex-start;
+        }
+
+        .align-self-flex-end {
+            align-self: flex-end;
+        }
+
+        .align-self-flex-center {
+            align-self: flex-center;
+        }
+
+        .valign-text-middle {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .valign-text-bottom {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .listeners-active,
+        .listeners-active * {
+            pointer-events: auto;
+        }
+
+        .hidden,
+        .hidden * {
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .smart-layers-pointers,
+        .smart-layers-pointers * {
+            pointer-events: auto;
+            visibility: visible;
+        }
+
+        .listeners-active-click,
+        .listeners-active-click * {
+            cursor: pointer;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amber400: #fbbf24;
+            --amber500: #f59e0b;
+            --amber700: #b45309;
+            --black: #000000;
+            --blue50: #eff6ff;
+            --blue500: #3b82f6;
+            --cerulean: #0ea5e91a;
+            --emerald500: #10b981;
+            --emerald700: #047857;
+            --gray100: #f4f4f5;
+            --gray400: #a1a1aa;
+            --gray50: #fafafa;
+            --gray500: #71717a;
+            --gray900: #18181b;
+            --green500: #22c55e;
+            --lightblue500: #0ea5e9;
+            --lightblue700: #0369a1;
+            --medium-purple: #8b5cf61a;
+            --pink500: #ec4899;
+            --purple500: #a855f7;
+            --red500: #ef4444;
+            --red600: #dc2626;
+            --rose100: #ffe4e6;
+            --rose500: #f43f5e;
+            --rose700: #be123c;
+            --teal400: #2dd4bf;
+            --violet500: #8b5cf6;
+            --violet700: #6d28d9;
+            --white: #ffffff;
+            --white-2: #ffffffb2;
+
+            --font-size-l: 13px;
+            --font-size-m: 12px;
+            --font-size-s: 11px;
+            --font-size-xl: 14px;
+            --font-size-xs: 10px;
+            --font-size-xxl: 22px;
+            --font-size-xxxl: 30px;
+
+            --font-family-inter: "Inter", Helvetica;
+        }
+
+        .text-3xlmedium {
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-xxxl);
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 0px;
+        }
+
+        .text-3xlregular {
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-xxxl);
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: 0px;
+        }
+
+        .text-smmedium {
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-xl);
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 0px;
+        }
+
+        .text-xsmedium {
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-m);
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 0px;
+        }
+
+        .text-xsregular {
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-m);
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: 0px;
+        }
+
+        .inter-semi-bold-santas-gray-11px {
+            color: var(--gray400);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-s);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .inter-semi-bold-white-11px {
+            color: var(--white);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-s);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .inter-bold-white-13px {
+            color: var(--white-2);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-l);
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .inter-normal-white-13px {
+            color: var(--white-2);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-l);
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .inter-semi-bold-sonic-silver-11px {
+            color: var(--gray500);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-s);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .inter-semi-bold-allports-12px {
+            color: var(--lightblue700);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-m);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .inter-semi-bold-santas-gray-10px {
+            color: var(--gray400);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-xs);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .inter-semi-bold-sonic-silver-10px {
+            color: var(--gray500);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-xs);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .inter-bold-sonic-silver-10px {
+            color: var(--gray500);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-xs);
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .inter-medium-black-22px {
+            color: var(--black);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-xxl);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .inter-normal-santas-gray-11px {
+            color: var(--gray400);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-s);
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .inter-semi-bold-purple-heart-12px {
+            color: var(--violet700);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-m);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        :root {}
+
+
+        /* screen - fantastical */
+
+        .fantastical {
+            background-color: var(--white);
+            height: 900px;
+            overflow: hidden;
+            overflow-x: hidden;
+            position: relative;
+            width: 1440px;
+        }
+
+        .fantastical .left-menu-smAq6k {
+            align-items: flex-start;
+            background-color: var(--gray900);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            height: 900px;
+            left: 0px;
+            padding: 16px;
+            position: absolute;
+            top: 0px;
+            width: 300px;
+        }
+
+        .fantastical .top-hDJypf {
+            align-items: center;
+            align-self: stretch;
+            background-color: transparent;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .dots-VXrzxM {
+            align-items: flex-start;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-grow: 1;
+            gap: 8px;
+            position: relative;
+        }
+
+        .fantastical .ellipse-1-yFSdlw {
+            background-color: #ed6b60;
+            border: 1px solid;
+            border-color: #d05147;
+            border-radius: 6px;
+            height: 12px;
+            position: relative;
+            width: 12px;
+        }
+
+        .fantastical .ellipse-2-yFSdlw {
+            background-color: #f5c250;
+            border: 1px solid;
+            border-color: #d6a343;
+            border-radius: 6px;
+            height: 12px;
+            position: relative;
+            width: 12px;
+        }
+
+        .fantastical .ellipse-3-yFSdlw {
+            background-color: #62c656;
+            border: 1px solid;
+            border-color: #52a842;
+            border-radius: 6px;
+            height: 12px;
+            position: relative;
+            width: 12px;
+        }
+
+        .fantastical .icon-button-master-fEMv3C {
+            background-color: #ffffff1a;
+            border-radius: 8px;
+            box-shadow: 0px 1px 2px #00000012;
+            padding: 4px 6px;
+        }
+
+        .fantastical .date-hDJypf {
+            align-items: center;
+            align-self: stretch;
+            background-color: transparent;
+            display: flex;
+            flex: 0 0 auto;
+            justify-content: space-between;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .title-lr6OSz {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .title-ct5jX3 {
+            color: var(--white);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 40px;
+            margin-top: -1.00px;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .x2021-ct5jX3 {
+            background-color: transparent;
+            color: var(--red500);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .chevron-left-tnsQ9a {
+            background-color: transparent;
+            height: 24px;
+            position: relative;
+            width: 24px;
+        }
+
+        .fantastical .chevron-right-tnsQ9a {
+            background-color: transparent;
+            height: 24px;
+            position: relative;
+            width: 24px;
+        }
+
+        .fantastical .mini-calendar-hDJypf {
+            align-items: flex-start;
+            background-color: transparent;
+            display: inline-flex;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .fantastical .header-nxhxsB {
+            width: 268px;
+        }
+
+        .fantastical .day-header-lACLkK {
+            flex: 1;
+            flex-grow: 1;
+            gap: 10px;
+            padding: 4px;
+        }
+
+        .fantastical .day-dxzP26 {
+            background-color: transparent;
+            flex: 1;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .day-header-L7tPxC {
+            flex: 1;
+            flex-grow: 1;
+            gap: 10px;
+            padding: 4px;
+        }
+
+        .fantastical .day-UqgY2k {
+            background-color: transparent;
+            flex: 1;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .day-header-9k9Vjk {
+            flex: 1;
+            flex-grow: 1;
+            gap: 10px;
+            padding: 4px;
+        }
+
+        .fantastical .day-rqQx2U {
+            background-color: transparent;
+            flex: 1;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .day-header-dFmC47 {
+            flex: 1;
+            flex-grow: 1;
+            gap: 10px;
+            padding: 4px;
+        }
+
+        .fantastical .day-JBKJjD {
+            background-color: transparent;
+            flex: 1;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .day-header-OhqHFy {
+            flex: 1;
+            flex-grow: 1;
+            gap: 10px;
+            padding: 4px;
+        }
+
+        .fantastical .day-Dltgpv {
+            background-color: transparent;
+            flex: 1;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .day-header-PHZbQu {
+            flex: 1;
+            flex-grow: 1;
+            gap: 10px;
+            padding: 4px;
+        }
+
+        .fantastical .day-ZtEDlb {
+            background-color: transparent;
+            flex: 1;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .day-header-8vn0lC {
+            flex: 1;
+            flex-grow: 1;
+            gap: 10px;
+            padding: 4px;
+        }
+
+        .fantastical .day-mciHFa {
+            background-color: transparent;
+            flex: 1;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .day-ajiE1G {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-vxztzr {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .event-dots-vxztzr {
+            opacity: 0;
+        }
+
+        .fantastical .dot-11xZGa {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-P3p0un {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-3f0NU1 {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .day-IiZxO1 {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-YqqAEv {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-ZwTiQ0 {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-JHGAAu {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-W181yh {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-RIdYfh {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-eoCzYg {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-k46uYn {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-Y0WniG {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-iubOGW {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-2ExGXD {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-7xfvOW {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-ZDIuAL {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-V2S7x4 {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-H9YhbP {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-bZ3oDj {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-wTZxqj {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-MYWmxj {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-7YTANY {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-2R4YDf {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-v67Ljs {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-xEjKzu {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-SZT1JK {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-y6YS8i {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-0p83v0 {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-gPruCc {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-FN4yf0 {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .event-dots-FN4yf0 {
+            opacity: 0;
+        }
+
+        .fantastical .dot-WzyvO9 {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-h00GbD {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-2Tv5lF {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .day-2U0Hxs {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-W1YEeO {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .event-dots-W1YEeO {
+            opacity: 0;
+        }
+
+        .fantastical .dot-AxarnV {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-ouxymo {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-uDW1C4 {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .day-S0frmR {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-YAXmZ5 {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-wt2ZEf {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-0xHRJ4 {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-rPXTRi {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-JxCDA3 {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-V3R649 {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-m8y0xR {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-aR4OEM {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-5oGWSL {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-5OYPso {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-YjrycF {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-TRUgwf {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-RQUItL {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-mRtwZ4 {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-WG9b37 {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-7pofOU {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-By3sio {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-oDZqxn {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-HBXRvi {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-5GXXBC {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-8szxRx {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-cxxXxX {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-cCb54v {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-Mz01Nf {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .event-dots-Mz01Nf {
+            opacity: 0;
+        }
+
+        .fantastical .dot-bxP7pp {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-rxOMmi {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-hkHpOG {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .day-1n8N16 {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-ddCVbv {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-NaKEQb {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-0ZDu7c {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-gUw71x {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-LHw4rv {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-K4OISz {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .day-9HzHMN {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-YZMeW7 {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-RSoARc {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-XT5UlE {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-KaBSDh {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-jmzlx0 {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-8KtBXy {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-tD5Why {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-xz7Fyc {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-bwOsWS {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-W2eMkF {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-dzHDx1 {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-sroZNr {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-2NNChi {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-MwvGct {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-CbHrrh {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-bPBSMi {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-fTheMZ {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-m2mxSj {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-2ZyUdy {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-lBAYX4 {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-kTceUC {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .event-dots-kTceUC {
+            opacity: 0;
+        }
+
+        .fantastical .dot-4DNzoU {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-YMCwCx {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-s5ZCUQ {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .day-yc6jux {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-j5Tch6 {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .event-dots-j5Tch6 {
+            opacity: 0;
+        }
+
+        .fantastical .dot-LJUxoD {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-R8FhDT {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-bHstwe {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .day-Z2yoJR {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-aV15dx {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-qsxEAn {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-mXzmXa {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-tEDqra {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-ltYl2Z {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-QFiGIO {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-Gusxk8 {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-1NU0Wc {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-1J7Yb9 {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-VOrLqD {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-yDEL1p {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-1P49ni {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-0eJVZm {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-QN1r3T {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-6lU4xN {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-PTf3Oo {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-niRMxJ {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-QcxHuR {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-8xKBdc {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-CuNK6Q {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-AsKH15 {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-uvZHU4 {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-sV7OmW {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-dOeGnR {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .fantastical .frame-12-KQQa0P {
+            align-items: center;
+            background-color: var(--blue500);
+            border-radius: 100px;
+            display: inline-flex;
+            flex: 0 0 auto;
+            flex-direction: column;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-TzPUeF {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+            width: 20px;
+        }
+
+        .fantastical .dot-R6mzMV {
+            background-color: var(--white);
+        }
+
+        .fantastical .day-ssBOzw {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-VsNgo8 {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-Dcxpz7 {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .day-0Zgvr2 {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-lVmEwS {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-LUM3t7 {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-gSqawo {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-4pYbxF {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-mvLyXT {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-rFu0DF {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .day-4UkmlT {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-gQRxpK {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-dYk28e {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-Imv6Mp {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-XAHCBA {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-Pkvmb5 {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-7TMXYE {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-BJxVgF {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-9wArKy {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-q2TD3T {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-tHl8Lx {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-BoUrl5 {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-sdxyKm {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-Owdjoi {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .event-dots-Owdjoi {
+            opacity: 0;
+        }
+
+        .fantastical .dot-Ie1NRc {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-7CJ3i6 {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-j5eYLT {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .day-mEVAET {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-spb3u6 {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .event-dots-spb3u6 {
+            opacity: 0;
+        }
+
+        .fantastical .dot-nDeixe {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-SyZN2V {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-9x6pvL {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .day-AJsTeU {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-UGLkw1 {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-1XZoxT {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-L63dsm {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-3qNxHs {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-3M0bBW {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-Ea48du {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-mcjXWI {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-JDUrZu {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-BPipUq {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-LX3iO6 {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-CXIO4x {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-64MvOW {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-exlH5q {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-8PRf7B {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-sR3yzk {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-biapwx {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-sfPRCl {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .dot-YFxZ2k {
+            background-color: var(--teal400);
+        }
+
+        .fantastical .day-yxMv5Z {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-6c6kxl {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .dot-3xCVeb {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-e3rKzV {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .day-v1GwBx {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .day-kigYUE {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: center;
+        }
+
+        .fantastical .event-dots-kigYUE {
+            opacity: 0;
+        }
+
+        .fantastical .dot-ZdEWP5 {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-CpGJQF {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .dot-BDyZyu {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .frame-13-hDJypf::-webkit-scrollbar {
+            display: none;
+            width: 0;
+        }
+
+        .fantastical .frame-13-hDJypf {
+            background-color: transparent;
+            height: 552px;
+            overflow: hidden;
+            overflow-y: scroll;
+            position: relative;
+            width: 268px;
+        }
+
+        .fantastical .days-eusxfK {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            left: 0px;
+            top: 0px;
+            width: 268px;
+        }
+
+        .fantastical .day-header-xu6wBG {
+            align-self: stretch;
+            flex: 0 0 auto;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .fantastical .today-kpNHvx {
+            background-color: transparent;
+            color: var(--blue500);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-l);
+            font-style: normal;
+            font-weight: 700;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .x2272021-kpNHvx {
+            background-color: transparent;
+            color: var(--blue500);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-l);
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .sun-JwFjZH {
+            height: 20px;
+            width: 20px;
+        }
+
+        .fantastical .all-day-event-xu6wBG {
+            background-color: var(--purple500);
+        }
+
+        .fantastical .all-hands-company-meeting-kD7TOQ {
+            background-color: transparent;
+            color: var(--white);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .event-xu6wBG {
+            align-self: stretch;
+            background-color: transparent;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .ellipse-4-kqTvlq {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .time-kqTvlq {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .end-xpN6K4 {
+            letter-spacing: 0.00px;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-xpN6K4 {
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .frame-11-xpN6K4 {
+            background-color: var(--gray400);
+        }
+
+        .fantastical .title-Rmpwcx {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            width: 100%;
+        }
+
+        .fantastical .event-12ZUi1 {
+            align-self: stretch;
+            background-color: transparent;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .ellipse-4-z4jxsy {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .time-z4jxsy {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .end-LaQXH4 {
+            letter-spacing: 0.00px;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-LaQXH4 {
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .frame-11-LaQXH4 {
+            background-color: var(--gray400);
+        }
+
+        .fantastical .title-8L2QtO {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            width: 100%;
+        }
+
+        .fantastical .day-header-12ZUi1 {
+            align-self: stretch;
+            flex: 0 0 auto;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .fantastical .tomorrow-ubPgQ0 {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .x2282021-ubPgQ0 {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .sun-LcZ5pT {
+            height: 20px;
+            width: 20px;
+        }
+
+        .fantastical .event-5E5hvv {
+            align-self: stretch;
+            background-color: transparent;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .ellipse-4-ESc6py {
+            background-color: var(--pink500);
+        }
+
+        .fantastical .time-ESc6py {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .end-WKQcgF {
+            letter-spacing: 0.00px;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-WKQcgF {
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .frame-11-WKQcgF {
+            background-color: var(--gray400);
+        }
+
+        .fantastical .title-E676n8 {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            width: 100%;
+        }
+
+        .fantastical .event-RcLKQq {
+            align-self: stretch;
+            background-color: transparent;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .ellipse-4-VnDcGv {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .time-VnDcGv {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .end-JvFOx9 {
+            letter-spacing: 0.00px;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-JvFOx9 {
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .frame-11-JvFOx9 {
+            background-color: var(--gray400);
+        }
+
+        .fantastical .title-i3iMn4 {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            width: 100%;
+        }
+
+        .fantastical .presentation-of-new-S043FD {
+            background-color: transparent;
+            color: var(--white);
+            flex: 1;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+        }
+
+        .fantastical .day-header-5E5hvv {
+            align-self: stretch;
+            flex: 0 0 auto;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .fantastical .x312021-HzrylG {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .event-e0bN1Z {
+            align-self: stretch;
+            background-color: transparent;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .ellipse-4-oeNhIk {
+            background-color: var(--pink500);
+        }
+
+        .fantastical .time-oeNhIk {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .end-5Jg2Rm {
+            letter-spacing: 0.00px;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-5Jg2Rm {
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .frame-11-5Jg2Rm {
+            background-color: var(--gray400);
+        }
+
+        .fantastical .title-xirkt2 {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            width: 100%;
+        }
+
+        .fantastical .day-header-RcLKQq {
+            align-self: stretch;
+            flex: 0 0 auto;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .fantastical .x322021-B6Fckm {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .event-xRvrxD {
+            align-self: stretch;
+            background-color: transparent;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .ellipse-4-unqPg9 {
+            background-color: var(--amber400);
+        }
+
+        .fantastical .time-unqPg9 {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .end-ii3bn2 {
+            letter-spacing: 0.00px;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-ii3bn2 {
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .frame-11-ii3bn2 {
+            background-color: var(--gray400);
+        }
+
+        .fantastical .title-2eBUXF {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            width: 100%;
+        }
+
+        .fantastical .day-header-e0bN1Z {
+            align-self: stretch;
+            flex: 0 0 auto;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .fantastical .wednesday-GtU0Lv {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .x332021-GtU0Lv {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .event-fKAgEq {
+            align-self: stretch;
+            background-color: transparent;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .ellipse-4-moATvX {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .time-moATvX {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .end-jJg8T8 {
+            letter-spacing: 0.00px;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-jJg8T8 {
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .frame-11-jJg8T8 {
+            background-color: var(--gray400);
+        }
+
+        .fantastical .title-nGspVV {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            width: 100%;
+        }
+
+        .fantastical .event-nZf3hy {
+            align-self: stretch;
+            background-color: transparent;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .ellipse-4-MvYftu {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .time-MvYftu {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .end-32NQ4F {
+            letter-spacing: 0.00px;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-32NQ4F {
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .frame-11-32NQ4F {
+            background-color: var(--gray400);
+        }
+
+        .fantastical .title-O6FF48 {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            width: 100%;
+        }
+
+        .fantastical .meeting-to-discuss-the-new-proposal-g6mfDf {
+            background-color: transparent;
+            color: var(--white);
+            flex: 1;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+        }
+
+        .fantastical .day-header-xRvrxD {
+            align-self: stretch;
+            flex: 0 0 auto;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .fantastical .thursday-lY0vyT {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .x342021-lY0vyT {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .sun-OChKey {
+            height: 20px;
+            width: 20px;
+        }
+
+        .fantastical .event-NKUWN0 {
+            align-self: stretch;
+            background-color: transparent;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .ellipse-4-2Ghhv4 {
+            background-color: var(--pink500);
+        }
+
+        .fantastical .time-2Ghhv4 {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .end-d2ry5h {
+            letter-spacing: 0.00px;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-d2ry5h {
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .frame-11-d2ry5h {
+            background-color: var(--gray400);
+        }
+
+        .fantastical .title-JlvKSB {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            width: 100%;
+        }
+
+        .fantastical .day-header-fKAgEq {
+            align-self: stretch;
+            flex: 0 0 auto;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .fantastical .friday-Uj9rqQ {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .x352021-Uj9rqQ {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .sun-T1feFW {
+            height: 20px;
+            width: 20px;
+        }
+
+        .fantastical .event-SdWXM9 {
+            align-self: stretch;
+            background-color: transparent;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .ellipse-4-rBIHXU {
+            background-color: var(--amber400);
+        }
+
+        .fantastical .time-rBIHXU {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .end-ox0YeC {
+            letter-spacing: 0.00px;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-ox0YeC {
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .frame-11-ox0YeC {
+            background-color: var(--gray400);
+        }
+
+        .fantastical .title-ciktoF {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            width: 100%;
+        }
+
+        .fantastical .follow-up-proposal-ejYcZH {
+            background-color: transparent;
+            color: var(--white);
+            flex: 1;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+        }
+
+        .fantastical .event-zTmLNn {
+            align-self: stretch;
+            background-color: transparent;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .ellipse-4-XEmC0Y {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .time-XEmC0Y {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .end-2KHbbp {
+            letter-spacing: 0.00px;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-2KHbbp {
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .frame-11-2KHbbp {
+            background-color: var(--gray400);
+        }
+
+        .fantastical .title-SKtwyH {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            width: 100%;
+        }
+
+        .fantastical .day-header-nZf3hy {
+            align-self: stretch;
+            flex: 0 0 auto;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .fantastical .saturday-1DUoVx {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .x362021-1DUoVx {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .sun-gvNRrA {
+            height: 20px;
+            width: 20px;
+        }
+
+        .fantastical .all-day-event-12ZUi1 {
+            background-color: var(--green500);
+        }
+
+        .fantastical .day-header-NKUWN0 {
+            align-self: stretch;
+            flex: 0 0 auto;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .fantastical .sunday-grv51m {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .x372021-grv51m {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .sun-njRfYZ {
+            height: 20px;
+            width: 20px;
+        }
+
+        .fantastical .all-day-event-5E5hvv {
+            background-color: var(--green500);
+        }
+
+        .fantastical .day-header-SdWXM9 {
+            align-self: stretch;
+            flex: 0 0 auto;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .fantastical .x382021-oB7QlI {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .sun-HnvexP {
+            height: 20px;
+            width: 20px;
+        }
+
+        .fantastical .all-day-event-RcLKQq {
+            background-color: var(--green500);
+        }
+
+        .fantastical .event-vIsX3J {
+            align-self: stretch;
+            background-color: transparent;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .ellipse-4-o1mPaP {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .time-o1mPaP {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .end-qwtDOl {
+            letter-spacing: 0.00px;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-qwtDOl {
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .frame-11-qwtDOl {
+            background-color: var(--gray400);
+        }
+
+        .fantastical .title-O9kgLg {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            width: 100%;
+        }
+
+        .fantastical .event-PeCIPd {
+            align-self: stretch;
+            background-color: transparent;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .ellipse-4-opgQYA {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .time-opgQYA {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .end-DazfoH {
+            letter-spacing: 0.00px;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-DazfoH {
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .frame-11-DazfoH {
+            background-color: var(--gray400);
+        }
+
+        .fantastical .title-HlWb2D {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            width: 100%;
+        }
+
+        .fantastical .day-header-zTmLNn {
+            align-self: stretch;
+            flex: 0 0 auto;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .fantastical .x392021-dxno2z {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .sun-SC4prE {
+            height: 20px;
+            width: 20px;
+        }
+
+        .fantastical .all-day-event-e0bN1Z {
+            background-color: var(--green500);
+        }
+
+        .fantastical .event-Errmgn {
+            align-self: stretch;
+            background-color: transparent;
+            flex: 0 0 auto;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .ellipse-4-LxHZIN {
+            background-color: var(--blue500);
+        }
+
+        .fantastical .time-LxHZIN {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+        }
+
+        .fantastical .end-pqsoFn {
+            letter-spacing: 0.00px;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-pqsoFn {
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .frame-11-pqsoFn {
+            background-color: var(--gray400);
+        }
+
+        .fantastical .title-y6vHpJ {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            width: 100%;
+        }
+
+        .fantastical .calendar-base-smAq6k {
+            align-items: flex-start;
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            height: 904px;
+            left: 300px;
+            padding: 16px;
+            position: absolute;
+            top: 0px;
+            width: 1140px;
+        }
+
+        .fantastical .header-YxPDX5 {
+            align-self: stretch;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .fantastical .arrows-ZCz2Pk {
+            gap: 1px;
+        }
+
+        .fantastical .icon-button-master-clGUZh {
+            background-color: var(--gray100);
+            border-radius: 6px 0px 0px 6px;
+            padding: 4px;
+        }
+
+        .fantastical .button-master-7vJxcm {
+            background-color: var(--gray100);
+            padding: 6px 16px;
+        }
+
+        .fantastical .text-8WD65S {
+            color: var(--gray900);
+            font-weight: 400;
+            line-height: 16px;
+        }
+
+        .fantastical .icon-button-master-Oq7aRa {
+            background-color: var(--gray100);
+            border-radius: 0px 6px 6px 0px;
+            padding: 4px;
+        }
+
+        .fantastical .day-toggle-ZCz2Pk {
+            align-items: flex-start;
+            background-color: transparent;
+            display: inline-flex;
+            flex: 0 0 auto;
+            position: relative;
+        }
+
+        .fantastical .button-master-yvw7zB {
+            background-color: transparent;
+            border-radius: 8px;
+            padding: 4px 16px;
+        }
+
+        .fantastical .text-IE1gYp {
+            color: var(--gray500);
+            font-weight: 500;
+            line-height: 20px;
+        }
+
+        .fantastical .button-master-Joy8DS {
+            background-color: var(--red600);
+            border-radius: 8px;
+            padding: 4px 16px;
+        }
+
+        .fantastical .text-fp5g7g {
+            color: var(--white);
+            font-weight: 500;
+            line-height: 20px;
+        }
+
+        .fantastical .button-master-dGyX2x {
+            background-color: transparent;
+            border-radius: 8px;
+            padding: 4px 16px;
+        }
+
+        .fantastical .text-2pK5pl {
+            color: var(--gray500);
+            font-weight: 500;
+            line-height: 20px;
+        }
+
+        .fantastical .button-master-Lam1iv {
+            background-color: transparent;
+            border-radius: 8px;
+            padding: 4px 16px;
+        }
+
+        .fantastical .text-UNsJBx {
+            color: var(--gray500);
+            font-weight: 500;
+            line-height: 20px;
+        }
+
+        .fantastical .field-ZCz2Pk {
+            align-items: flex-start;
+            background-color: transparent;
+            display: flex;
+            position: relative;
+            width: 184px;
+        }
+
+        .fantastical .field-master-NtaMcQ {
+            align-items: center;
+            background-color: var(--gray100);
+            border-radius: 4px;
+            display: flex;
+            flex: 1;
+            flex-grow: 1;
+            gap: 8px;
+            padding: 4px;
+            position: relative;
+        }
+
+        .fantastical .search-zRpoz7 {
+            background-color: transparent;
+            color: var(--gray400);
+            flex: 1;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+            position: relative;
+            text-align: left;
+        }
+
+        .fantastical .inner-stack-YxPDX5 {
+            align-items: flex-start;
+            background-color: transparent;
+            display: inline-flex;
+            flex-direction: column;
+            height: 878px;
+            margin-bottom: -50.00px;
+            margin-right: -48.00px;
+            position: relative;
+        }
+
+        .fantastical .week-days-vikkVM {
+            align-items: flex-start;
+            background-color: transparent;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 12px;
+            padding: 0px 0px 0px 48px;
+            position: relative;
+            width: 1108px;
+        }
+
+        .fantastical .days-muPwlo {
+            display: inline-flex;
+            flex: 0 0 auto;
+        }
+
+        .fantastical .day-rStpHz {
+            align-items: flex-start;
+            background-color: var(--gray50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            padding: 4px 8px 16px;
+            position: relative;
+            width: 144.57142639160156px;
+        }
+
+        .fantastical .sun-EviF7f {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+            line-height: 12px;
+            margin-top: -1.00px;
+            text-align: left;
+        }
+
+        .fantastical .day-And3px {
+            align-items: flex-start;
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            padding: 4px 8px 16px;
+            position: relative;
+            width: 144.57142639160156px;
+        }
+
+        .fantastical .sun-24g3gv {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+            line-height: 12px;
+            margin-top: -1.00px;
+            text-align: left;
+        }
+
+        .fantastical .day-wDqwIx {
+            align-items: flex-start;
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            padding: 4px 8px 16px;
+            position: relative;
+            width: 144.57142639160156px;
+        }
+
+        .fantastical .sun-kv1pZL {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+            line-height: 12px;
+            margin-top: -1.00px;
+            text-align: left;
+        }
+
+        .fantastical .day-arxuS7 {
+            align-items: flex-start;
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            padding: 4px 8px 16px;
+            position: relative;
+            width: 144.57142639160156px;
+        }
+
+        .fantastical .sun-k95cEJ {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+            line-height: 12px;
+            margin-top: -1.00px;
+            text-align: left;
+        }
+
+        .fantastical .day-pvRB33 {
+            align-items: flex-start;
+            background-color: var(--blue50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            padding: 4px 8px 16px;
+            position: relative;
+            width: 144.57142639160156px;
+        }
+
+        .fantastical .sun-yhUhEO {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+            line-height: 12px;
+            margin-top: -1.00px;
+            text-align: left;
+        }
+
+        .fantastical .day-6LNAhC {
+            align-items: flex-start;
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            padding: 4px 8px 16px;
+            position: relative;
+            width: 144.57142639160156px;
+        }
+
+        .fantastical .sun-WhtlW0 {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+            line-height: 12px;
+            margin-top: -1.00px;
+            text-align: left;
+        }
+
+        .fantastical .day-XJ2a7a {
+            align-items: flex-start;
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 4px 8px 16px;
+            position: relative;
+            width: 144.57142639160156px;
+        }
+
+        .fantastical .sun-ptWpVW {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+            line-height: 12px;
+            margin-top: -1.00px;
+            text-align: left;
+        }
+
+        .fantastical .est-gmt-5-muPwlo {
+            background-color: transparent;
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-right: -12.00px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            width: 48px;
+        }
+
+        .fantastical .hour-row-vikkVM {
+            align-self: stretch;
+            width: 100%;
+        }
+
+        .fantastical .time-BdLsfm {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .x60-block-q3cJtl {
+            background-color: var(--gray50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-C61Ns6 {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-oe0AIH {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .x60-block-BXUhSx {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-KS1xcA {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-taxcZ1 {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-cOp0Qb {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-RkCEu6 {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-nSD1r3 {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-wrm3JH {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-A0vrtd {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-o4CNLO {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-kVxmjB {
+            background-color: var(--blue50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-KjPf3P {
+            background-color: var(--blue50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-WgM532 {
+            background-color: var(--blue50);
+        }
+
+        .fantastical .x60-block-O7Xnfe {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-d553wd {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-pcUgn3 {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-c8gQN4 {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-wXDF9O {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-wMSUdU {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .time-XwphFF {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .hour-row-dU2W8Y {
+            width: 1156px;
+        }
+
+        .fantastical .time-pvmMZm {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .x60-block-vSDys4 {
+            background-color: var(--gray50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-nIjhH7 {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-90WdoZ {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .x60-block-nqch1X {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-YtVxFC {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-UUPBq1 {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-xucsMm {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-ntB0Y8 {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-Gy0CMT {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-6Z7sg3 {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-dE7CSC {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-tr1OUi {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-zx2Bs5 {
+            background-color: var(--blue50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-16HE9i {
+            background-color: var(--blue50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-2zjxRn {
+            background-color: var(--blue50);
+        }
+
+        .fantastical .x60-block-rrpNq0 {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-aZPRc9 {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-p34vSx {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-5YuRlk {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-dxbp5E {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-TLB3xb {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .time-sXpEo6 {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .hour-row-xImMAk {
+            width: 1156px;
+        }
+
+        .fantastical .time-acMRJZ {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .x60-block-dRb44b {
+            background-color: var(--gray50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-fjv9xb {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-ZtzyiP {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .x60-block-uxiZTQ {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-BM1n7Z {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-VCww3v {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-Dfjn1F {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-SxrGfx {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-BAvJXC {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-CpEh1f {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-OXrkN9 {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-KQyRZq {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-AxBJHp {
+            background-color: var(--blue50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-pWWnap {
+            background-color: var(--blue50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-Y7BwvE {
+            background-color: var(--blue50);
+        }
+
+        .fantastical .x60-block-QBMPcf {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-6VWxR1 {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-VPGIKq {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-AugpkB {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-9IIW3Z {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-6mvKxF {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .time-mHc6FS {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .hour-row-6hhqWz {
+            width: 1156px;
+        }
+
+        .fantastical .time-uZhaPe {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .x60-block-rUVS6o {
+            background-color: var(--gray50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-YLKU2z {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-CGxWfs {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .x60-block-owXQJl {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-0ABJb2 {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-JcK9fk {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-Uu6iDO {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-SiGsx3 {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-MZIGku {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-e5xpLj {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-ohpwi5 {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-mjqwlV {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-Ebgz0D {
+            background-color: var(--blue50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-rVegh7 {
+            background-color: var(--blue50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-xKGSQo {
+            background-color: var(--blue50);
+        }
+
+        .fantastical .x60-block-6z0clt {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-T9zHLr {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-ZDcTQP {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-l2ZP8a {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-hOaoOA {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-PNYTA1 {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .time-zt4euV {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .hour-row-e8OJER {
+            width: 1156px;
+        }
+
+        .fantastical .time-bc6Zr9 {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .x60-block-50W78h {
+            background-color: var(--gray50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-7CoWRV {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-XWr7WK {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .x60-block-429CGf {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-3wXIIb {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-g7MiZW {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-R1rpCH {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-DT4yfp {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-BNx7vb {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-3lxHg6 {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-rYmAf0 {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-ZlPsre {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-JuvWkm {
+            background-color: var(--blue50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-qGb7u1 {
+            background-color: var(--blue50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-XyFZLP {
+            background-color: var(--blue50);
+        }
+
+        .fantastical .x60-block-sydVzJ {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-2RYQ0r {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-d2qQnf {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-RDmWwE {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-Q64cVe {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-Uf4wcz {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .time-jVC9mj {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .hour-row-4xJkjy {
+            width: 1156px;
+        }
+
+        .fantastical .time-HxMySG {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .x60-block-9jxiiu {
+            background-color: var(--gray50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-QvYoZl {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-HxEw9j {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .x60-block-khJ3rJ {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-3Jm1I6 {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-EoE2Yk {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-dP4AKm {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-e33v2B {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-MTGEQ4 {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-UMl8Ii {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-hgODKk {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-vmhBje {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-4m9mPy {
+            background-color: var(--blue50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-N9nAWl {
+            background-color: var(--blue50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-26KxHm {
+            background-color: var(--blue50);
+        }
+
+        .fantastical .x60-block-1gkGT3 {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-zZRyWs {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-u8x4WW {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-yzON5b {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-0DiEGn {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-kvrOHc {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .time-GGxFAK {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .hour-row-TdWcao {
+            width: 1156px;
+        }
+
+        .fantastical .time-gy7rjc {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .x60-block-C2v4Zq {
+            background-color: var(--gray50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-r34xHO {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-fCW1vT {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .x60-block-uxRrY5 {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-oG1KUO {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-CrVRQB {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-j2FnzS {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-ggzrgk {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-JW2rum {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-5EVfhk {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-HyxPCe {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-o6H9Ju {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-7TR3gS {
+            background-color: var(--blue50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-lUxS7r {
+            background-color: var(--blue50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-SKDShG {
+            background-color: var(--blue50);
+        }
+
+        .fantastical .x60-block-Jx5DFP {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-928rJw {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-jAZx0o {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-4e9i1V {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-DeoXPt {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-m9UOzn {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .time-2VMBY0 {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .hour-row-98yahg {
+            width: 1156px;
+        }
+
+        .fantastical .time-HKECmm {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .x60-block-9nOGhV {
+            background-color: var(--gray50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-tNsOxx {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-kOxKkc {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .x60-block-3FjSbC {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-7I76Ng {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-V8wxsS {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-WTcgmQ {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-kxRazJ {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-EkJjBB {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-Gopjbj {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-XleD6A {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-xGJwlR {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-pRDGx6 {
+            background-color: var(--blue50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-brLZs5 {
+            background-color: var(--blue50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-8nOgvx {
+            background-color: var(--blue50);
+        }
+
+        .fantastical .x60-block-xD3YSz {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-enZcPP {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-0U7WiU {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-OH1f1h {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-CyxxKq {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-1vmvEx {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .time-DC7tHM {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .hour-row-hHziBE {
+            width: 1156px;
+        }
+
+        .fantastical .time-zwBSvP {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .x60-block-qwasPj {
+            background-color: var(--gray50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-V4zxXm {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-vQZAXc {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .x60-block-Qoj9mK {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-WJPWDy {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-PjMxU7 {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-EBLq3M {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-Ryexxr {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-TaE3cH {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-pO8NUo {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-XD5an5 {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-QRUpxk {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-xt5RCg {
+            background-color: var(--blue50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-mUKARD {
+            background-color: var(--blue50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-7wFQYc {
+            background-color: var(--blue50);
+        }
+
+        .fantastical .x60-block-m26UHL {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-tec3AH {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-jFWMSQ {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-1cr0x5 {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-3cABes {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-iTxUjK {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .time-mZ3L84 {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .hour-row-cF4JFo {
+            width: 1156px;
+        }
+
+        .fantastical .time-XLc5FN {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .x60-block-LhKMxC {
+            background-color: var(--gray50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-WsblrC {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-h75T8Z {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .x60-block-1ooimk {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-IuOuWi {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-69FjKC {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-XTxSjB {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-c2qkAR {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-CUP235 {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-tBco3U {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-9mQnWL {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-7Ck1No {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-KMYASZ {
+            background-color: var(--blue50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-4ml584 {
+            background-color: var(--blue50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-G7xd1J {
+            background-color: var(--blue50);
+        }
+
+        .fantastical .x60-block-Wx0BW1 {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-SJ2lUT {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-snx9He {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-iusdsA {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-jY8Cav {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-ZoWsNt {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .time-BxIfIo {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .hour-row-kqvD3B {
+            width: 1156px;
+        }
+
+        .fantastical .time-gBy1u4 {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .x60-block-j7pj8J {
+            background-color: var(--gray50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-Nxylvl {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-wvJJ8H {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .x60-block-f5QzDD {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-buxkNq {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-l0KvAC {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-fAEPro {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-XBkjuF {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-lMKgSx {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-NQGiK2 {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-Yaeguk {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-JyyJRD {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-Xx5mhG {
+            background-color: var(--blue50);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-2E8yyx {
+            background-color: var(--blue50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-poTzoK {
+            background-color: var(--blue50);
+        }
+
+        .fantastical .x60-block-oIqfsJ {
+            background-color: var(--white);
+            box-shadow: inset -1px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-VqEa9L {
+            background-color: var(--white);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-xsmPiv {
+            background-color: var(--white);
+        }
+
+        .fantastical .x60-block-Z9DuEh {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #e0e0e0;
+        }
+
+        .fantastical .x30-block-GzSMFZ {
+            background-color: var(--gray50);
+            box-shadow: inset 0px -1px 0px #f7f7f7;
+        }
+
+        .fantastical .x30-block-ocJ2BU {
+            background-color: var(--gray50);
+        }
+
+        .fantastical .time-5CPL7g {
+            color: var(--gray500);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            text-align: left;
+            width: 36px;
+        }
+
+        .fantastical .event-smAq6k {
+            background-color: var(--cerulean);
+            border-radius: 4px;
+            height: 68px;
+            left: 509px;
+            overflow: hidden;
+            position: absolute;
+            top: 196px;
+            width: 143px;
+        }
+
+        .fantastical .bar-xiYxnB {
+            background-color: var(--lightblue500);
+        }
+
+        .fantastical .time-ULMe0a {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-79QYEA {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-79QYEA {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-79QYEA {
+            background-color: var(--lightblue700);
+        }
+
+        .fantastical .end-ULMe0a {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-0sRouZ {
+            background-color: var(--cerulean);
+            border-radius: 4px;
+            height: 68px;
+            left: 509px;
+            overflow: hidden;
+            position: absolute;
+            top: 268px;
+            width: 143px;
+        }
+
+        .fantastical .bar-yS2XRe {
+            background-color: var(--lightblue500);
+        }
+
+        .fantastical .time-V0Ie8k {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-mZWcjN {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-mZWcjN {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .end-V0Ie8k {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-YOjxeX {
+            background-color: var(--cerulean);
+            border-radius: 4px;
+            height: 68px;
+            left: 509px;
+            overflow: hidden;
+            position: absolute;
+            top: 340px;
+            width: 143px;
+        }
+
+        .fantastical .bar-55SefE {
+            background-color: var(--lightblue500);
+        }
+
+        .fantastical .time-kxzoJR {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-jgM0xz {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-jgM0xz {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-jgM0xz {
+            background-color: var(--lightblue700);
+        }
+
+        .fantastical .end-kxzoJR {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-Brsuvr {
+            background-color: var(--medium-purple);
+            border-radius: 4px;
+            height: 140px;
+            left: 509px;
+            overflow: hidden;
+            position: absolute;
+            top: 412px;
+            width: 143px;
+        }
+
+        .fantastical .bar-7nE4MD {
+            background-color: var(--violet500);
+        }
+
+        .fantastical .time-vJv6eA {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-l3sjXE {
+            color: var(--violet700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-l3sjXE {
+            color: var(--violet700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .end-vJv6eA {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-eW9UQj {
+            background-color: var(--cerulean);
+            border-radius: 4px;
+            height: 68px;
+            left: 509px;
+            overflow: hidden;
+            position: absolute;
+            top: 556px;
+            width: 143px;
+        }
+
+        .fantastical .bar-daVwTK {
+            background-color: var(--lightblue500);
+        }
+
+        .fantastical .time-Rwakzd {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-Xq7cZA {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-Xq7cZA {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-Xq7cZA {
+            background-color: var(--lightblue700);
+        }
+
+        .fantastical .end-Rwakzd {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-M5zoya {
+            background-color: var(--cerulean);
+            border-radius: 4px;
+            height: 68px;
+            left: 943px;
+            overflow: hidden;
+            position: absolute;
+            top: 556px;
+            width: 143px;
+        }
+
+        .fantastical .bar-REYeOU {
+            background-color: var(--lightblue500);
+        }
+
+        .fantastical .time-NIGCBy {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-EMlLDy {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-EMlLDy {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-EMlLDy {
+            background-color: var(--lightblue700);
+        }
+
+        .fantastical .end-NIGCBy {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-HVFqGN {
+            background-color: #f59e0b1a;
+            border-radius: 4px;
+            height: 68px;
+            left: 509px;
+            overflow: hidden;
+            position: absolute;
+            top: 628px;
+            width: 143px;
+        }
+
+        .fantastical .bar-FbHj4W {
+            background-color: var(--amber500);
+        }
+
+        .fantastical .time-N0qV5p {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-cPjI02 {
+            color: var(--amber700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-cPjI02 {
+            color: var(--amber700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-cPjI02 {
+            background-color: var(--amber700);
+        }
+
+        .fantastical .end-N0qV5p {
+            align-self: stretch;
+            color: var(--amber700);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-m);
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-WUxKzX {
+            background-color: #f59e0b1a;
+            border-radius: 4px;
+            height: 68px;
+            left: 1087px;
+            overflow: hidden;
+            position: absolute;
+            top: 628px;
+            width: 143px;
+        }
+
+        .fantastical .bar-w5x07G {
+            background-color: var(--amber500);
+        }
+
+        .fantastical .time-AS7kXP {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-4rrpam {
+            color: var(--amber700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-4rrpam {
+            color: var(--amber700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-4rrpam {
+            background-color: var(--amber700);
+        }
+
+        .fantastical .end-AS7kXP {
+            align-self: stretch;
+            color: var(--amber700);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-m);
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-3JEzro {
+            background-color: var(--rose100);
+            border-radius: 4px;
+            height: 68px;
+            left: 653px;
+            overflow: hidden;
+            position: absolute;
+            top: 772px;
+            width: 143px;
+        }
+
+        .fantastical .bar-i9Om10 {
+            background-color: var(--rose500);
+        }
+
+        .fantastical .time-lid3hb {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-ZZEKLv {
+            color: var(--rose700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-ZZEKLv {
+            color: var(--rose700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-ZZEKLv {
+            background-color: var(--rose700);
+        }
+
+        .fantastical .end-lid3hb {
+            align-self: stretch;
+            color: var(--rose700);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-m);
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-Pqe1Ax {
+            background-color: var(--rose100);
+            border-radius: 4px;
+            height: 68px;
+            left: 1087px;
+            overflow: hidden;
+            position: absolute;
+            top: 772px;
+            width: 143px;
+        }
+
+        .fantastical .bar-ujtfnG {
+            background-color: var(--rose500);
+        }
+
+        .fantastical .time-mR3pRc {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-FbuqlP {
+            color: var(--rose700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-FbuqlP {
+            color: var(--rose700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-FbuqlP {
+            background-color: var(--rose700);
+        }
+
+        .fantastical .end-mR3pRc {
+            align-self: stretch;
+            color: var(--rose700);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-m);
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-JASrOB {
+            background-color: var(--cerulean);
+            border-radius: 4px;
+            height: 68px;
+            left: 653px;
+            overflow: hidden;
+            position: absolute;
+            top: 484px;
+            width: 143px;
+        }
+
+        .fantastical .bar-Pb6zu5 {
+            background-color: var(--lightblue500);
+        }
+
+        .fantastical .time-dJRKOi {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-7sIhUY {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-7sIhUY {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-7sIhUY {
+            background-color: var(--lightblue700);
+        }
+
+        .fantastical .end-dJRKOi {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-Naixv2 {
+            background-color: var(--cerulean);
+            border-radius: 4px;
+            height: 68px;
+            left: 1087px;
+            overflow: hidden;
+            position: absolute;
+            top: 484px;
+            width: 143px;
+        }
+
+        .fantastical .bar-VB57wB {
+            background-color: var(--lightblue500);
+        }
+
+        .fantastical .time-NBGp6I {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-dZUVvb {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-dZUVvb {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-dZUVvb {
+            background-color: var(--lightblue700);
+        }
+
+        .fantastical .end-NBGp6I {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-YskBhO {
+            background-color: var(--cerulean);
+            border-radius: 4px;
+            height: 142px;
+            left: 653px;
+            overflow: hidden;
+            position: absolute;
+            top: 268px;
+            width: 71px;
+        }
+
+        .fantastical .bar-hEIrWu {
+            background-color: var(--lightblue500);
+        }
+
+        .fantastical .time-Sy1goZ {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-BZXdoa {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-BZXdoa {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .end-Sy1goZ {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+            margin-bottom: -23.00px;
+        }
+
+        .fantastical .event-1xWM6Q {
+            background-color: #10b9811a;
+            border-radius: 4px;
+            height: 68px;
+            left: 725px;
+            overflow: hidden;
+            position: absolute;
+            top: 268px;
+            width: 71px;
+        }
+
+        .fantastical .bar-6K6NAA {
+            background-color: var(--emerald500);
+        }
+
+        .fantastical .time-3l2avd {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-TIgFDf {
+            color: var(--emerald700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-TIgFDf {
+            color: var(--emerald700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .end-3l2avd {
+            align-self: stretch;
+            color: var(--emerald700);
+            font-family: var(--font-family-inter);
+            font-size: var(--font-size-m);
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-0Yy4uD {
+            background-color: var(--cerulean);
+            border-radius: 4px;
+            height: 68px;
+            left: 798px;
+            overflow: hidden;
+            position: absolute;
+            top: 268px;
+            width: 143px;
+        }
+
+        .fantastical .bar-PjRcZ0 {
+            background-color: var(--lightblue500);
+        }
+
+        .fantastical .time-HehbTA {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-sPBGpx {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-sPBGpx {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-sPBGpx {
+            background-color: var(--lightblue700);
+        }
+
+        .fantastical .end-HehbTA {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-gTkN92 {
+            background-color: var(--cerulean);
+            border-radius: 4px;
+            height: 68px;
+            left: 1087px;
+            overflow: hidden;
+            position: absolute;
+            top: 268px;
+            width: 143px;
+        }
+
+        .fantastical .bar-aIypN1 {
+            background-color: var(--lightblue500);
+        }
+
+        .fantastical .time-l2V9s9 {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-vDCVdG {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-vDCVdG {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-vDCVdG {
+            background-color: var(--lightblue700);
+        }
+
+        .fantastical .end-l2V9s9 {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-pIvgdK {
+            background-color: var(--medium-purple);
+            border-radius: 4px;
+            height: 68px;
+            left: 798px;
+            overflow: hidden;
+            position: absolute;
+            top: 412px;
+            width: 143px;
+        }
+
+        .fantastical .bar-LEnwSB {
+            background-color: var(--violet500);
+        }
+
+        .fantastical .time-kn4x36 {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-wlin2U {
+            color: var(--violet700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-wlin2U {
+            color: var(--violet700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-wlin2U {
+            background-color: var(--violet700);
+        }
+
+        .fantastical .end-kn4x36 {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-r42ZVV {
+            background-color: var(--medium-purple);
+            border-radius: 4px;
+            height: 68px;
+            left: 943px;
+            overflow: hidden;
+            position: absolute;
+            top: 340px;
+            width: 143px;
+        }
+
+        .fantastical .bar-w3gNF7 {
+            background-color: var(--violet500);
+        }
+
+        .fantastical .time-IfGh9y {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-xFePJU {
+            color: var(--violet700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-xFePJU {
+            color: var(--violet700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-xFePJU {
+            background-color: var(--violet700);
+        }
+
+        .fantastical .end-IfGh9y {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-EFHFmz {
+            background-color: var(--cerulean);
+            border-radius: 4px;
+            height: 142px;
+            left: 653px;
+            overflow: hidden;
+            position: absolute;
+            top: 628px;
+            width: 143px;
+        }
+
+        .fantastical .bar-cOcki1 {
+            background-color: var(--lightblue500);
+        }
+
+        .fantastical .time-ih9mnl {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-7wKR9y {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-7wKR9y {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-7wKR9y {
+            background-color: var(--lightblue700);
+        }
+
+        .fantastical .end-ih9mnl {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .event-APPDkw {
+            background-color: var(--cerulean);
+            border-radius: 4px;
+            height: 142px;
+            left: 798px;
+            overflow: hidden;
+            position: absolute;
+            top: 556px;
+            width: 143px;
+        }
+
+        .fantastical .bar-OHlpmm {
+            background-color: var(--lightblue500);
+        }
+
+        .fantastical .time-S9CsHm {
+            align-items: center;
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .fantastical .end-X2Biyy {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: -1.00px;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .ampm-X2Biyy {
+            color: var(--lightblue700);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .fantastical .frame-11-X2Biyy {
+            background-color: var(--lightblue700);
+        }
+
+        .fantastical .end-S9CsHm {
+            align-self: stretch;
+            letter-spacing: 0.00px;
+        }
+
+        .fantastical .all-day-event {
+            align-items: flex-start;
+            border-radius: 6px;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 6px;
+            position: relative;
+        }
+
+        .fantastical .ampm {
+            background-color: transparent;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .arrows {
+            align-items: flex-start;
+            background-color: transparent;
+            display: inline-flex;
+            flex: 0 0 auto;
+            position: relative;
+        }
+
+        .fantastical .bar {
+            align-self: stretch;
+            position: relative;
+            width: 3px;
+        }
+
+        .fantastical .blocks {
+            align-items: flex-start;
+            align-self: stretch;
+            background-color: transparent;
+            display: inline-flex;
+            flex: 0 0 auto;
+            position: relative;
+        }
+
+        .fantastical .body {
+            align-items: flex-start;
+            background-color: transparent;
+            border-radius: 4px;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            flex-grow: 1;
+            height: 68px;
+            padding: 6px;
+            position: relative;
+        }
+
+        .fantastical .button {
+            align-items: flex-start;
+            background-color: transparent;
+            display: inline-flex;
+            flex: 0 0 auto;
+            position: relative;
+        }
+
+        .fantastical .button-master {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 8px;
+            position: relative;
+        }
+
+        .fantastical .city-sales-pitch {
+            background-color: transparent;
+            color: var(--white);
+            flex: 1;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+        }
+
+        .fantastical .cloud {
+            background-color: transparent;
+            height: 20px;
+            position: relative;
+            width: 20px;
+        }
+
+        .fantastical .day-header {
+            align-items: flex-start;
+            background-color: transparent;
+            display: flex;
+            position: relative;
+        }
+
+        .fantastical .days {
+            align-items: flex-start;
+            background-color: transparent;
+            position: relative;
+        }
+
+        .fantastical .dot {
+            border-radius: 2px;
+            height: 4px;
+            position: relative;
+            width: 4px;
+        }
+
+        .fantastical .ellipse-4 {
+            border-radius: 6px;
+            height: 12px;
+            position: relative;
+            width: 12px;
+        }
+
+        .fantastical .end {
+            background-color: transparent;
+            line-height: 16px;
+            position: relative;
+            text-align: left;
+        }
+
+        .fantastical .event {
+            align-items: flex-start;
+            display: flex;
+        }
+
+        .fantastical .event-dots {
+            align-items: flex-start;
+            background-color: transparent;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 2px;
+            position: relative;
+        }
+
+        .fantastical .frame-11 {
+            align-items: flex-start;
+            border-radius: 100px;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 2px;
+            position: relative;
+        }
+
+        .fantastical .header {
+            align-items: flex-start;
+            background-color: transparent;
+            display: flex;
+            flex: 0 0 auto;
+            position: relative;
+        }
+
+        .fantastical .hour-row {
+            align-items: flex-start;
+            background-color: transparent;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 12px;
+            position: relative;
+        }
+
+        .fantastical .httpszoomusi1983475281 {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .icon {
+            background-color: transparent;
+            height: 20px;
+            position: relative;
+            width: 20px;
+        }
+
+        .fantastical .icon-button {
+            align-items: flex-start;
+            background-color: transparent;
+            display: inline-flex;
+            flex: 0 0 auto;
+            position: relative;
+        }
+
+        .fantastical .icon-button-master {
+            align-items: center;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 8px;
+            justify-content: center;
+            position: relative;
+        }
+
+        .fantastical .left {
+            align-items: flex-start;
+            background-color: transparent;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            position: relative;
+        }
+
+        .fantastical .meeting-to-talk-about-ross-contract {
+            background-color: transparent;
+            color: var(--white);
+            flex: 1;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+        }
+
+        .fantastical .meta {
+            align-items: center;
+            align-self: stretch;
+            background-color: transparent;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 8px;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .monday {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .monthly-catch-up {
+            background-color: transparent;
+            color: var(--white);
+            flex: 1;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+        }
+
+        .fantastical .quarterly-review {
+            background-color: transparent;
+            color: var(--white);
+            flex: 1;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+        }
+
+        .fantastical .right {
+            align-items: flex-start;
+            background-color: transparent;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 4px;
+            position: relative;
+        }
+
+        .fantastical .spring-break-2021 {
+            background-color: transparent;
+            color: var(--white);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .start {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .sun {
+            background-color: transparent;
+            position: relative;
+        }
+
+        .fantastical .temp {
+            align-items: flex-start;
+            background-color: transparent;
+            display: inline-flex;
+            flex: 0 0 auto;
+            position: relative;
+        }
+
+        .fantastical .text {
+            background-color: transparent;
+            font-style: normal;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .text_label {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .time {
+            background-color: transparent;
+            position: relative;
+        }
+
+        .fantastical .title {
+            background-color: transparent;
+            position: relative;
+        }
+
+        .fantastical .tuesday {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .url {
+            align-items: flex-start;
+            align-self: stretch;
+            background-color: transparent;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+            padding: 0px 0px 0px 20px;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .video-camera {
+            background-color: transparent;
+            height: 8px;
+            position: relative;
+            width: 8px;
+        }
+
+        .fantastical .visit-to-discuss-improvements {
+            background-color: transparent;
+            color: var(--white);
+            flex: 1;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+        }
+
+        .fantastical .week {
+            align-items: flex-start;
+            background-color: transparent;
+            display: flex;
+            flex: 0 0 auto;
+            position: relative;
+            width: 268px;
+        }
+
+        .fantastical .x21 {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 32px;
+            position: relative;
+            text-align: left;
+        }
+
+        .fantastical .x30-block {
+            align-self: stretch;
+            height: 36px;
+            position: relative;
+            width: 100%;
+        }
+
+        .fantastical .x40 {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .x55 {
+            background-color: transparent;
+            letter-spacing: 0.00px;
+            line-height: 20px;
+            margin-top: -1.00px;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .fantastical .x60-block {
+            align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            width: 144.57142639160156px;
+        }

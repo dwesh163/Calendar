@@ -1,5 +1,5 @@
 .loading {
-    background-color: #332e30;
+    background-color: #ffffff;
     height: 100%;
     overflow: hidden;
     display: flex;
@@ -10,21 +10,24 @@
     height: 100%;
     width: 100%;
     display: flex;
-    background-color: #332e30;
+    background-color: #ffffff;
 }
 
 .menu {
     width: 20vw;
     background-color: #18181b;
-    border-right: #3f3f3f solid 2px;
     height: 100%;
     position: absolute;
 }
 
 .content {
     width: 100%;
-    background-color: #332e30;
+    background-color: #ffffff;
     padding-left: 20vw;
+}
+
+.dflex {
+    display: flex;
 }
 
 .title {
@@ -84,10 +87,23 @@
     height: 41px;
     position: absolute;
     width: 5px;
-    background-color: #858484;
+    background-color: #3b82f6;
     position: absolute;
     right: 0;
     margin-top: 92px;
+}
+
+.footer {
+    height: 5vh;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    margin-top: auto;
+    font-weight: 600;
+    color: #fff;
+    font-family: Poppins;
+    bottom: 0;
+    position: absolute;
 }
 
 .item {
@@ -127,13 +143,14 @@
 
 .hr {
     margin: 0 40px;
+    color: #939393;
 }
 
 .pageTitle {
     background-color: transparent;
     font-family: "Inter";
     background-blend-mode: lighten;
-    color: #868484;
+    color: #000;
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
@@ -147,9 +164,11 @@
 }
 
 .mainBox {
-    height: auto;
+    height: calc(100vh - 75px);
     width: 100%;
     padding: 0 80px;
+    font-family: "Inter";
+    overflow: scroll;
 }
 
 .mainItem {
@@ -159,17 +178,18 @@
 }
 
 .mainItemText {
-    color: #fff;
+    color: #000000;
     font-family: "Inter";
     align-self: flex-end;
     width: 150px;
+    font-size: 1.1rem;
 }
 
 .mainItemContent {
-    color: #858484;
+    color: #3a3a3a;
     font-family: "Inter";
     width: 150px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     align-self: flex-end;
 }
 
@@ -179,4 +199,56 @@
     width: 150px;
     font-size: 0.9rem;
     align-self: flex-end;
+}
+
+.deviceBorder {
+    border: 1px solid #d3d3d3;
+    border-radius: 12px;
+    margin-top: 50px;
+}
+
+.deviceInfo {
+    padding: 10px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #d3d3d3;
+    position: relative;
+}
+
+.deviceIcon {
+    font-size: 2rem;
+    width: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #2e2e31;
+}
+
+.deviceBrowserName {
+    color: #2e2e31;
+    vertical-align: middle;
+
+}
+
+.deviceOsName {
+    font-weight: 600;
+    color: #2e2e31;
+    vertical-align: middle;
+
+}
+
+.deviceOsIcon {
+    vertical-align: middle;
+    margin-right: 8px;
+
+}
+
+.deviceDisconnect {
+    background-color: #3b82f6;
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 3px;
+    right: 30px;
+    position: absolute;
 }

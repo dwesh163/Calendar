@@ -29,7 +29,8 @@ body {
 html {
     height: 100%;
     width: 100%;
-    background-color: #332e30;
+    background-color: #ffffff;
+
 }
 
 .screen * {
@@ -565,7 +566,8 @@ input:focus {
 }
 
 .rectangle-1-G0cGXq {
-    background-color: #332e30;
+    background-color: #ffffff;
+
     height: 100%;
     width: 100%;
 }
