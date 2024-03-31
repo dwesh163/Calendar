@@ -17,6 +17,7 @@ services:
             - ./init.sql:/docker-entrypoint-initdb.d/init.sql
         env_file:
             - .env
+        command: --max_connections=1000000
 
     calendar_web:
         image: node:hydrogen-slim
