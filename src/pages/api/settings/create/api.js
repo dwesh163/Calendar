@@ -1,6 +1,7 @@
 import mysql from 'mysql2/promise';
 import { dbConfig } from '../../../../../lib/config';
 import { getSession } from 'next-auth/react';
+import { v4 as uuidv4 } from 'uuid';
 
 const generateKey = (length) => {
 	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -31,8 +32,8 @@ const getUserApiCount = async (userId, connection) => {
 	return rows[0].api_count;
 };
 
-const insertApiKey = async (key, userId, currentDate, connection) => {
-	await connection.execute('INSERT INTO api (api_key, api_limit, api_used, api_last_used, api_date_created, api_user_id) VALUES (?, ?, ?, ?, ?, ?)', [key, 100, 0, null, currentDate, userId]);
+const insertApiKey = async (key, secret_key, userId, currentDate, connection) => {
+	await connection.execute('INSERT INTO api (api_key, api_secret_key, api_public_id, api_limit, api_used, api_last_used, api_date_created, api_user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [key, secret_key, uuidv4(), 100, 0, null, currentDate, userId]);
 };
 
 export default async function Get(req, res) {
@@ -59,7 +60,7 @@ export default async function Get(req, res) {
 
 		const currentDate = new Date();
 
-		await insertApiKey(key, user.user_id, currentDate, connection);
+		await insertApiKey(key, generateKey(32), user.user_id, currentDate, connection);
 
 		return res.status(200).send({ api_key: key, api_limit: 100, api_used: 0, api_last_used: null, api_date_created: currentDate });
 	} catch (error) {

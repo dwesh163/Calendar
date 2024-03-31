@@ -19,8 +19,6 @@ export default async function GetApis(req, res) {
 		const [users] = await connection.execute('SELECT user_id FROM users WHERE user_id_public = ?', [session.user.id]);
 		const user = users[0];
 
-		console.log(user);
-
 		if (!user) {
 			return res.status(401).send('Unauthorized');
 		}

@@ -7,6 +7,11 @@ import { useRouter } from 'next/router';
 import CircularProgress, { circularProgressClasses } from '@mui/material/CircularProgress';
 import { ArrowLeftShort, BoxArrowLeft, CodeSlash, Laptop, Person, Phone, ShieldShaded, Sliders } from 'react-bootstrap-icons';
 
+import Devices from '@/components/settings/devices';
+
+import packageJson from '/package.json';
+import Api from '@/components/settings/api';
+
 function MainCircularProgress() {
 	const height = 200;
 	const circleSize = height * 0.15;
@@ -48,15 +53,16 @@ export default function Settings() {
 	const router = useRouter();
 	const [loading, setIsLoading] = useState(true);
 	const [user, setUser] = useState({});
+	const [devices, setDevices] = useState({});
 	const [page, setPage] = useState('Account');
 
 	const pages = ['Account', 'Security', 'Advanced settings', 'API', 'Devices'];
 
-	//	useEffect(() => {
-	//		if (status == 'unauthenticated') {
-	//			router.push('/');
-	//		}
-	//	}, [session, status]);
+	useEffect(() => {
+		if (status == 'unauthenticated') {
+			router.push('/');
+		}
+	}, [session, status]);
 
 	const handleSwitchPage = (newPage) => {
 		setPage(newPage); // Mettez à jour l'état de la page avec la nouvelle page
@@ -73,7 +79,8 @@ export default function Settings() {
 						throw new Error('Failed to fetch calendar data');
 					}
 					const userData = await response.json();
-					setUser(userData);
+					setUser(userData.user);
+					setDevices(userData.devices);
 					setIsLoading(false);
 				} catch (error) {}
 			};
@@ -133,6 +140,9 @@ export default function Settings() {
 								</div>
 							</div>
 						</div>
+						<footer className={styles.footer}>
+							{packageJson.name.toUpperCase()} - {packageJson.version}
+						</footer>
 					</div>
 					<div className={styles.content}>
 						<div className={styles.pageTitle} data-id="2:764">
@@ -174,29 +184,11 @@ export default function Settings() {
 											<div className={styles.mainItemContent}>18 january 1999</div>
 											<div className={styles.mainItemEdit}>edit</div>
 										</div>
-
-										{/*<div className={styles.mainItemText} data-id="2:763">
-										Private account
-									</div>
-
-									<img className="vector-PuqSHl vector" data-id="2:780" src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65fefd29de8b3ffbd5cf2261/img/vector-9.svg" anima-src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65fefd29de8b3ffbd5cf2261/img/vector-9.svg" alt="Vector" />
-
-									<div className="save-preferences-VaFnxr save-preferences" data-id="2:781">
-										<div className="rectangle-5-u8DUwx rectangle-5" data-id="2:782"></div>
-										<div className="save-preferences-u8DUwx save-preferences inter-medium-white-16px" data-id="2:783">
-											save preferences
-										</div>
-									</div>
-
-									<div className="undo-changes-VaFnxr undo-changes" data-id="2:784">
-										<div className="undo-changes-eLbWLQ undo-changes inter-normal-gunsmoke-13px" data-id="2:785">
-											undo changes
-										</div>
-										<img className="line-2" data-id="2:786" src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65fefd29de8b3ffbd5cf2261/img/line-2-1.svg" anima-src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65fefd29de8b3ffbd5cf2261/img/line-2-1.svg" alt="Line 2" />
-										<img className="line-3" data-id="2:787" src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65fefd29de8b3ffbd5cf2261/img/line-3-1.svg" anima-src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65fefd29de8b3ffbd5cf2261/img/line-3-1.svg" alt="Line 3" />
-									</div>*/}
 									</div>
 								)}
+
+								{page === 'Devices' && <Devices devices={devices} />}
+								{page === 'API' && <Api />}
 							</>
 						)}
 					</div>
