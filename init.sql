@@ -1,8 +1,9 @@
 CREATE TABLE IF NOT EXISTS calendars (
 	calendar_id INT NOT NULL UNIQUE AUTO_INCREMENT,
 	calendar_name varchar(50) NOT NULL,
-	calendar_id_public varchar(50) NOT NULL,
 	calendar_color varchar(8) NOT NULL,
+	calendar_icon varchar(100) NOT NULL,
+	calendar_id_public varchar(50) NOT NULL,
 	calendar_user_id INT NOT NULL,
 	PRIMARY KEY (calendar_id)
 );
