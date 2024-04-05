@@ -1,16 +1,18 @@
 import styles from '@/styles/side.module.css';
 import { PersonFill, BoxArrowInLeft } from 'react-bootstrap-icons';
-
+import * as BIcon from 'react-bootstrap-icons';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { useState, useEffect } from 'react';
 import Events from './events';
 
-export default function Side({ calendars, initialDate, events, eventsLite }) {
+export default function Side({ calendarsSelected, setCalendarsSelected, initialDate, events, eventsLite }) {
 	const { data: session, status } = useSession();
 
 	const [isHovered, setIsHovered] = useState(false);
+	const [calendarsLists, setCalendarsLists] = useState([]);
 
 	const daysOfWeek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+	const colors = ['a855f7', 'fbbf24', '3b82f6', 'f75555', '4e36c0', '23a638', '22c55e', 'a855f7'];
 	const [currentDate, setCurrentDate] = useState(new Date(initialDate));
 
 	useEffect(() => {
@@ -50,8 +52,53 @@ export default function Side({ calendars, initialDate, events, eventsLite }) {
 		return daysArray;
 	};
 
+	const handleCalendarClick = (calendarId) => {
+		const isSelected = calendarsSelected.includes(calendarId);
+
+		if (isSelected) {
+			const updatedSelection = calendarsSelected.filter((id) => id !== calendarId);
+			setCalendarsSelected(updatedSelection);
+		} else {
+			setCalendarsSelected([...calendarsSelected, calendarId]);
+		}
+	};
+
+	useEffect(() => {
+		if (status === 'authenticated') {
+			setCalendarsSelected(session.user.calendarId);
+		}
+	}, [status]);
+
+	useEffect(() => {
+		if (status === 'authenticated') {
+			const fetchLists = async () => {
+				try {
+					const response = await fetch(`/api/calendars`);
+					if (!response.ok) {
+						throw new Error('Failed to fetch calendar data');
+					}
+					const calendarData = await response.json();
+					setCalendarsLists(calendarData);
+				} catch (error) {
+					console.error('Error fetching calendar data:', error);
+				}
+			};
+
+			fetchLists();
+		}
+	}, [status]);
+
+	function Icon({ source, size, className }) {
+		let BootstrapIcon = BIcon[source];
+		if (BootstrapIcon == undefined) {
+			BootstrapIcon = BIcon['Calendar3'];
+		}
+		return <BootstrapIcon size={size} style={{ color: 'white' }} className={className} />;
+	}
+
 	const weeks = [];
 	const daysInMonth = getDaysInMonth(currentDate);
+
 	for (let i = 0; i < daysInMonth.length; i += 7) {
 		weeks.push(daysInMonth.slice(i, i + 7));
 	}
@@ -139,6 +186,15 @@ export default function Side({ calendars, initialDate, events, eventsLite }) {
 								</div>
 							);
 						})}
+					</div>
+				))}
+			</div>
+
+			<div className={styles.calendarLists}>
+				{calendarsLists.map((calendar, index) => (
+					<div key={index} className={styles.calendarItem} style={{ backgroundColor: calendarsSelected.includes(calendar.id) ? `#${calendar.color}` : '' }} onClick={() => handleCalendarClick(calendar.id)}>
+						<Icon source={calendar.icon} size={20} className={styles.calendarIcon} />
+						<span>{calendar.name}</span>
 					</div>
 				))}
 			</div>

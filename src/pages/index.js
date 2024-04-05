@@ -64,8 +64,6 @@ function reformatEvents(events) {
 		});
 
 		sortedEventsByDate[date].forEach((item) => {
-			console.log('formatTime(item.event_start);', formatTime(item.event_start));
-			console.log('formatTime(item.event_end);', formatTime(item.event_end));
 			item.event_start = formatTime(item.event_start);
 			item.event_end = formatTime(item.event_end);
 		});
@@ -81,6 +79,8 @@ export default function Home() {
 	const [loadingText, setLoadingText] = useState('load');
 
 	const [calendarsLists, setCalendarsLists] = useState({});
+	const [calendarsSelected, setCalendarsSelected] = useState([]);
+
 	const [eventsLists, setEventsLists] = useState({});
 
 	const [calendarsMonth, setCalendarsMonth] = useState({});
@@ -91,7 +91,7 @@ export default function Home() {
 
 	const [searchContent, setSearchContent] = useState('');
 	const [selectedMenu, setSelectedMenu] = useState('Month');
-	const [selectedDay, setSelectedDay] = useState(new Date());
+	const [selectedDay, setSelectedDay] = useState(new Date('03-18-2024'));
 
 	useEffect(() => {
 		if (status == 'loading') {
@@ -114,10 +114,6 @@ export default function Home() {
 			}, 2000);
 		}
 	}, [session, status]);
-
-	useEffect(() => {
-		console.log(searchContent, selectedMenu, selectedDay);
-	}, [searchContent, selectedMenu, selectedDay]);
 
 	useEffect(() => {
 		if (status === 'authenticated') {
@@ -152,7 +148,6 @@ export default function Home() {
 					const calendarData = await response.json();
 					setCalendarsLite(calendarData.calendars);
 					const formatEvents = reformatEvents(calendarData.events);
-					console.log('formatEvents', formatEvents);
 					setEventsLite(formatEvents);
 				} catch (error) {
 					console.error('Error fetching calendar data:', error);
@@ -172,7 +167,6 @@ export default function Home() {
 						throw new Error('Failed to fetch calendar data');
 					}
 					const calendarData = await response.json();
-					setCalendarsLists(calendarData.calendars);
 					const formatEvents = reformatEvents(calendarData.events);
 					setEventsLists(formatEvents);
 				} catch (error) {
@@ -201,10 +195,10 @@ export default function Home() {
 					<>
 						<div class="container-center-horizontal">
 							<div class="fantastical screen calendar" data-id="1:292">
-								<Side calendars={calendarsLists} initialDate={selectedDay} events={eventsLists} eventsLite={eventsLite} />
+								<Side calendarsSelected={calendarsSelected} setCalendarsSelected={setCalendarsSelected} initialDate={selectedDay} events={eventsLists} eventsLite={eventsLite} />
 								<div class="calendar-base-smAq6k">
 									<HeaderComponents setSearchContent={setSearchContent} setSelectedMenu={setSelectedMenu} setSelectedDay={setSelectedDay} selectedDay={selectedDay} selectedMenu={selectedMenu} />
-									{selectedMenu == 'Week' ? <Week initialDate={selectedDay} events={eventsMonth} /> : selectedMenu == 'Month' ? <Month initialDate={selectedDay} events={eventsMonth} /> : selectedMenu == 'Day' ? <Day initialDate={selectedDay} events={eventsMonth} /> : ''}
+									{selectedMenu == 'Week' ? <Week initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} /> : selectedMenu == 'Month' ? <Month initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} /> : selectedMenu == 'Day' ? <Day initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} /> : ''}
 								</div>
 							</div>
 						</div>
