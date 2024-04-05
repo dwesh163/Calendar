@@ -1,14 +1,16 @@
 import Head from 'next/head';
-import styles from '../styles/index.module.css';
+import Modal from 'react-modal';
+import styles from '@/styles/index.module.css';
 import { useEffect, useState } from 'react';
-import { useSession, signIn, signOut } from 'next-auth/react';
-import Loading from '@/components/loading';
+import { useSession } from 'next-auth/react';
 
+import Loading from '@/components/loading';
 import HeaderComponents from '@/components/header/header';
 import Week from '@/components/main/week/week';
 import Side from '@/components/side/side';
 import Month from '@/components/main/month/month';
 import Day from '@/components/main/day/day';
+import { Gear } from 'react-bootstrap-icons';
 
 function formatTime(timeString) {
 	const [hours, minutes] = timeString.split(':');
@@ -78,7 +80,6 @@ export default function Home() {
 	const [loading, setIsLoading] = useState(true);
 	const [loadingText, setLoadingText] = useState('load');
 
-	const [calendarsLists, setCalendarsLists] = useState({});
 	const [calendarsSelected, setCalendarsSelected] = useState([]);
 
 	const [eventsLists, setEventsLists] = useState({});
@@ -90,7 +91,7 @@ export default function Home() {
 	const [eventsLite, setEventsLite] = useState({});
 
 	const [searchContent, setSearchContent] = useState('');
-	const [selectedMenu, setSelectedMenu] = useState('Month');
+	const [selectedMenu, setSelectedMenu] = useState('Week');
 	const [selectedDay, setSelectedDay] = useState(new Date('03-18-2024'));
 
 	useEffect(() => {
@@ -193,14 +194,15 @@ export default function Home() {
 					<Loading loadingText={loadingText} />
 				) : (
 					<>
-						<div class="container-center-horizontal">
-							<div class="fantastical screen calendar" data-id="1:292">
-								<Side calendarsSelected={calendarsSelected} setCalendarsSelected={setCalendarsSelected} initialDate={selectedDay} events={eventsLists} eventsLite={eventsLite} />
-								<div class="calendar-base-smAq6k">
-									<HeaderComponents setSearchContent={setSearchContent} setSelectedMenu={setSelectedMenu} setSelectedDay={setSelectedDay} selectedDay={selectedDay} selectedMenu={selectedMenu} />
-									{selectedMenu == 'Week' ? <Week initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} /> : selectedMenu == 'Month' ? <Month initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} /> : selectedMenu == 'Day' ? <Day initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} /> : ''}
-								</div>
-							</div>
+						<div className={styles.gear}>
+							<a href="/settings" className={styles.gearColor}>
+								<Gear />
+							</a>
+						</div>
+						<Side calendarsSelected={calendarsSelected} setCalendarsSelected={setCalendarsSelected} initialDate={selectedDay} events={eventsLists} eventsLite={eventsLite} />
+						<div class="calendar-base-smAq6k">
+							<HeaderComponents setSearchContent={setSearchContent} setSelectedMenu={setSelectedMenu} setSelectedDay={setSelectedDay} selectedDay={selectedDay} selectedMenu={selectedMenu} />
+							{selectedMenu == 'Week' ? <Week initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} /> : selectedMenu == 'Month' ? <Month initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} /> : selectedMenu == 'Day' ? <Day initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} /> : ''}
 						</div>
 					</>
 				)}
