@@ -1,7 +1,7 @@
 import styles from '@/styles/month.module.css';
 import { useEffect, useState } from 'react';
 
-export default function Month({ initialDate, events }) {
+export default function Month({ calendarsSelected, initialDate, events }) {
 	const [currentDate, setCurrentDate] = useState(new Date(initialDate));
 	const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
@@ -83,11 +83,17 @@ export default function Month({ initialDate, events }) {
 												{events[`${day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[2]}-${day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[0]}-${day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[1]}`] ? (
 													<>
 														{events[`${day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[2]}-${day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[0]}-${day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-').split('-')[1]}`].map((eventName, index) => (
-															<article key={index} className="tags-pdNVtl tags" data-id="1:1223">
-																<div className="orange-tag inter-medium-sunshade-14px" style={{ backgroundColor: '#' + eventName.calendar_color + '3c', color: '#' + eventName.calendar_color, fontStyle: 'normal', fontWeight: '500' }}>
-																	{eventName.event_name}
-																</div>
-															</article>
+															<>
+																{calendarsSelected.includes(eventName.calendar_id) ? (
+																	<article key={index} className="tags-pdNVtl tags" data-id="1:1223">
+																		<div className="orange-tag inter-medium-sunshade-14px" style={{ backgroundColor: '#' + eventName.calendar_color + '3c', color: '#' + eventName.calendar_color, fontStyle: 'normal', fontWeight: '500' }}>
+																			{eventName.event_name}
+																		</div>
+																	</article>
+																) : (
+																	<></>
+																)}
+															</>
 														))}
 													</>
 												) : (

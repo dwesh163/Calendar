@@ -19,7 +19,7 @@ const getDaysInWeek = (date) => {
 	return daysArray;
 };
 
-export default function Week({ initialDate, events }) {
+export default function Week({ calendarsSelected, initialDate, events }) {
 	const startOfWeek = new Date(initialDate);
 	startOfWeek.setDate(startOfWeek.getDate() - ((startOfWeek.getDay() + 6) % 7));
 	const endOfWeek = new Date(initialDate);
@@ -39,7 +39,7 @@ export default function Week({ initialDate, events }) {
 
 	return (
 		<>
-			<Events events={eventsInWeek} />
+			<Events events={eventsInWeek} calendarsSelected={calendarsSelected} />
 			<div style={{ position: 'absolute', bottom: '15px', right: '30px', color: '#71717a', fontSize: '1.4rem', zIndex: '4' }}>
 				<a href="/settings">
 					<Gear />

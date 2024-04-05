@@ -1,7 +1,7 @@
 import styles from '@/styles/weekEvents.module.css';
 import { useEffect, useState } from 'react';
 
-export default function Events({ events }) {
+export default function Events({ calendarsSelected, events }) {
 	const [currentTimePercentage, setCurrentTimePercentage] = useState();
 	const timeStartDay = new Date().setHours(7, 0);
 	const timeEndDay = new Date().setHours(18, 0);
@@ -37,6 +37,10 @@ export default function Events({ events }) {
 								const eventDurationMinutes = (eventEndTime - eventStartTime) / (1000 * 60);
 								const heightPercentage = (eventDurationMinutes / totalDayDurationMinutes) * 100;
 								const StartTimePercentage = ((parseInt(startHour - 7) * 60 + parseInt(startMinute)) / totalDayDurationMinutes) * 100;
+
+								if (!calendarsSelected.includes(eventData.calendar_id)) {
+									return;
+								}
 
 								return (
 									<div key={`event-${index}`} className={styles.event} style={{ left: `calc((100%/7) * ${dayOfWeek})`, width: 'calc(100%/7)', height: `${heightPercentage}%`, top: `calc(${StartTimePercentage}% - 2px)`, backgroundColor: `#${eventData.calendar_color}1c` }}>
