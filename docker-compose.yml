@@ -36,6 +36,7 @@ services:
             - 'traefik.enable=true'
             - 'traefik.http.routers.calendar_web.rule=Host(`calendar.server.com`)'
             - 'traefik.http.routers.calendar_web.entrypoints=web'
+            - 'traefik.http.services.calendar_web.loadbalancer.server.port=3000'
 
 networks:
     traefik_network:
