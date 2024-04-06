@@ -37,25 +37,7 @@ services:
             - 'traefik.http.routers.calendar_web.rule=Host(`calendar.server.com`)'
             - 'traefik.http.routers.calendar_web.entrypoints=web'
 
-    whoami:
-        image: 'traefik/whoami'
-        container_name: 'simple-service'
-        labels:
-            - 'traefik.enable=true'
-            - 'traefik.http.routers.whoami.rule=Host(`whoami.server.com`)'
-            - 'traefik.http.routers.whoami.entrypoints=web'
-
-    traefik:
-        image: 'traefik:v3.0'
-        container_name: 'traefik'
-        command:
-            - '--api.insecure=true'
-            - '--providers.docker=true'
-            - '--providers.docker.exposedbydefault=false'
-            - '--entrypoints.web.address=:80'
-        ports:
-            - '80:80'
-            - '8080:8080'
-            - '443:443'
-        volumes:
-            - '/var/run/docker.sock:/var/run/docker.sock:ro'
+networks:
+    traefik_network:
+        name: traefik_network
+        external: true
