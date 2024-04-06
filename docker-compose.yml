@@ -37,5 +37,5 @@ services:
 
 networks:
     traefik_network:
-        external:
-            name: traefik_network
+        name: traefik_network
+        external: true
