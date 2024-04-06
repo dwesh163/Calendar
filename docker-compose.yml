@@ -1,5 +1,12 @@
 version: '3.1'
 
+networks:
+    traefik_network:
+        driver: bridge
+
+    calendar_db_network:
+        driver: bridge
+
 services:
     calendar_db:
         image: mysql:latest
@@ -19,7 +26,7 @@ services:
             - .env
         command: --max_connections=100000000
         networks:
-            - traefik_network
+            - calendar_db_network
 
     calendar_web:
         image: node:hydrogen-slim
@@ -35,6 +42,7 @@ services:
         tty: true
         networks:
             - traefik_network
+            - calendar_db_network
         labels:
             - traefik.enable=true
             - traefik.http.routers.calendar_web.rule=Host(`calendar.server.com`)
