@@ -17,7 +17,9 @@ services:
             - ./init.sql:/docker-entrypoint-initdb.d/init.sql
         env_file:
             - .env
-        command: --max_connections=1000000
+        command: --max_connections=100000000
+        networks:
+            - traefik_network
 
     calendar_web:
         image: node:hydrogen-slim
@@ -31,3 +33,7 @@ services:
               source: ./
               target: /srv/app
         tty: true
+        networks:
+            - traefik_network
+        labels:
+            - "traefik.http.routers.calendar.rule=Host('calendar.server')"
