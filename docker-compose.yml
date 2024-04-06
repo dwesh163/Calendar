@@ -34,7 +34,7 @@ services:
 
         labels:
             - 'traefik.enable=true'
-            - 'traefik.http.routers.calendar_web.rule=Host(`calendar.server`)'
+            - 'traefik.http.routers.calendar_web.rule=Host(`calendar.server.com`)'
             - 'traefik.http.routers.calendar_web.entrypoints=web'
 
     whoami:
@@ -42,7 +42,7 @@ services:
         container_name: 'simple-service'
         labels:
             - 'traefik.enable=true'
-            - 'traefik.http.routers.whoami.rule=Host(`whoami.sever`)'
+            - 'traefik.http.routers.whoami.rule=Host(`whoami.server.com`)'
             - 'traefik.http.routers.whoami.entrypoints=web'
 
     traefik:
