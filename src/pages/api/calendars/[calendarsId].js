@@ -12,7 +12,7 @@ async function connectMySQL() {
 	}
 }
 
-export default async function Auth(req, res) {
+export default async function Calendars(req, res) {
 	try {
 		const connection = await connectMySQL();
 		if (req.method == 'GET') {
@@ -24,6 +24,11 @@ export default async function Auth(req, res) {
 			}
 
 			const reqCalendarsId = req.query.calendarsId.split(/:|\n/).filter((id) => id.trim() !== '');
+
+			if (reqCalendarsId.length == 1) {
+				const [[calendar]] = await connection.execute('SELECT calendar_name, calendar_color, calendar_id_public FROM calendars WHERE calendar_id_public = ?', [reqCalendarsId[0]]);
+				return res.status(200).send(calendar);
+			}
 
 			for (const calendarId of reqCalendarsId) {
 				if (verify.response.calendarsId.includes(calendarId)) {
