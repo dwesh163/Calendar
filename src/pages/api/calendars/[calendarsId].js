@@ -16,7 +16,7 @@ export default async function Calendars(req, res) {
 	try {
 		const connection = await connectMySQL();
 		if (req.method == 'GET') {
-			const verify = await getAndVerifyUser(req, 'GET', connection);
+			const verify = await getAndVerifyUser(req, 'GET', 'calendar', connection);
 			let calendars = [];
 
 			if (verify.code != 200) {
@@ -31,7 +31,7 @@ export default async function Calendars(req, res) {
 			}
 
 			for (const calendarId of reqCalendarsId) {
-				if (verify.response.calendarsId.includes(calendarId)) {
+				if (verify.response.calendarsPublicId.includes(calendarId)) {
 					const [[calendar]] = await connection.execute('SELECT calendar_name, calendar_color, calendar_id_public FROM calendars WHERE calendar_id_public = ?', [calendarId]);
 					calendars.push(calendar);
 				}
@@ -41,7 +41,7 @@ export default async function Calendars(req, res) {
 		}
 
 		if (req.method == 'PUT') {
-			const verify = await getAndVerifyUser(req, 'PUT', connection);
+			const verify = await getAndVerifyUser(req, 'PUT', 'calendar', connection);
 			const data = JSON.parse(JSON.stringify(req.body));
 			const Regex = /^#[0-9A-F]{6}$/i;
 			const id = req.query.calendarsId;
@@ -69,7 +69,7 @@ export default async function Calendars(req, res) {
 		}
 
 		if (req.method == 'DELETE') {
-			const verify = await getAndVerifyUser(req, 'DELETE', connection);
+			const verify = await getAndVerifyUser(req, 'DELETE', 'calendar', connection);
 			if (verify.code != 200) {
 				return res.status(verify.code).send(verify.response);
 			}
@@ -77,12 +77,10 @@ export default async function Calendars(req, res) {
 			const reqCalendarsId = req.query.calendarsId.split(/:|\n/).filter((id) => id.trim() !== '');
 
 			for (const calendarId of reqCalendarsId) {
-				if (verify.response.calendarsId.includes(calendarId)) {
-					const [[calendar]] = await connection.execute('SELECT calendar_id FROM calendars WHERE calendar_id_public = ?', [calendarId]);
+				const [[calendar]] = await connection.execute('SELECT calendar_id FROM calendars WHERE calendar_id_public = ?', [calendarId]);
 
-					await connection.execute('DELETE FROM events WHERE calendar_id = ?', [calendar.calendar_id]);
-					await connection.execute('DELETE FROM calendars WHERE calendar_id_public = ?', [calendarId]);
-				}
+				await connection.execute('DELETE FROM events WHERE calendar_id = ?', [calendar.calendar_id]);
+				await connection.execute('DELETE FROM calendars WHERE calendar_id_public = ?', [calendarId]);
 			}
 
 			res.send(200);
