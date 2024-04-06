@@ -17,7 +17,7 @@ export default async function Index(req, res) {
 	try {
 		const connection = await connectMySQL();
 		if (req.method == 'GET') {
-			const verify = await getAndVerifyUser(req, 'GET', connection);
+			const verify = await getAndVerifyUser(req, 'GET', 'calendar', connection);
 
 			if (verify.code != 200) {
 				return res.status(verify.code).send(verify.response);
@@ -36,7 +36,7 @@ export default async function Index(req, res) {
 		}
 
 		if (req.method == 'POST') {
-			const verify = await getAndVerifyUser(req, 'POST', connection);
+			const verify = await getAndVerifyUser(req, 'POST', 'calendar', connection);
 			const data = JSON.parse(JSON.stringify(req.body));
 			const Regex = /^#[0-9A-F]{6}$/i;
 			const id = uuidv4();
