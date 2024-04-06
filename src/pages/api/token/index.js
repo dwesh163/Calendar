@@ -28,7 +28,7 @@ export default async function Auth(req, res) {
 		await connection.execute('UPDATE api SET api_used = api_used + 1, api_last_used = ? WHERE api_id = ?', [new Date(), api.api_id]);
 
 		const expiry = new Date();
-		expiry.setMinutes(expiry.getMinutes() + 1000);
+		expiry.setMinutes(expiry.getMinutes() + 10);
 		var token = jwt.sign({ id: api.api_public_id, exp: Math.floor(Date.now() / 1000) + 10 * 60 }, process.env.API_SECRET);
 
 		return res.status(200).send({ token: token, expiry: expiry });
