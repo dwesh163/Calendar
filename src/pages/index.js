@@ -200,9 +200,20 @@ export default function Home() {
 							</a>
 						</div>
 						<Side calendarsSelected={calendarsSelected} setCalendarsSelected={setCalendarsSelected} initialDate={selectedDay} events={eventsLists} eventsLite={eventsLite} />
-						<div class="calendar-base-smAq6k">
+						<div className={styles.calendar}>
 							<HeaderComponents setSearchContent={setSearchContent} setSelectedMenu={setSelectedMenu} setSelectedDay={setSelectedDay} selectedDay={selectedDay} selectedMenu={selectedMenu} />
-							{selectedMenu == 'Week' ? <Week initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} /> : selectedMenu == 'Month' ? <Month initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} /> : selectedMenu == 'Day' ? <Day initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} /> : ''}
+							{(() => {
+								switch (selectedMenu) {
+									case 'Week':
+										return <Week initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} />;
+									case 'Month':
+										return <Month initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} />;
+									case 'Day':
+										return <Day initialDate={selectedDay} events={eventsMonth} calendarsSelected={calendarsSelected} />;
+									default:
+										return null;
+								}
+							})()}
 						</div>
 					</>
 				)}
