@@ -1,3 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+}
+
+.logoContainer {
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 25vh;
+    margin: auto;
+    position: relative;
+    margin-top: 35vh;
+}
+
+.textContainer {
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.ProgressBox {
+    position: relative;
+    margin: auto;
+    height: 100%
+}
+
 .button {
     appearance: none;
     background-color: transparent;
@@ -50,4 +86,13 @@
 
 .button:-webkit-details-marker {
     display: none;
+}
+
+.loadingFooter {
+    height: 10vh;
+    color: #fff;
+    text-align: center;
+    margin-top: auto;
+    font-weight: 600;
+    color: #fff;
 }

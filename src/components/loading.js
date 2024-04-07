@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import CircularProgress, { circularProgressClasses } from '@mui/material/CircularProgress';
 import { useMediaQuery } from 'react-responsive';
 import { useSession, signIn, signOut } from 'next-auth/react';
-
 import styles from '@/styles/loading.module.css';
 
 import packageJson from '/package.json';
@@ -13,7 +12,7 @@ function MainCircularProgress() {
 	const circleSize = height * 0.15;
 
 	return (
-		<Box sx={{ position: 'relative', margin: 'auto', height: '100%' }}>
+		<Box className={styles.ProgressBox}>
 			<CircularProgress
 				variant="determinate"
 				sx={{
@@ -49,11 +48,11 @@ export default function Loading({ loadingText }) {
 	const isMobile = useMediaQuery({ maxWidth: 567 });
 
 	return (
-		<Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#000' }}>
-			<Box sx={{ height: '75vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-				<img src="/logo.png" alt="Loading Image" style={{ width: '25vh', margin: 'auto', position: 'relative', marginTop: '35vh' }} />
+		<Box className={styles.container}>
+			<Box className={styles.logoContainer}>
+				<img src="/logo.png" alt="Logo" className={styles.logo} />
 			</Box>
-			<Box sx={{ height: '15vh', display: 'flex', flexDirection: 'column', color: 'white' }}>
+			<Box className={styles.textContainer}>
 				{(() => {
 					switch (loadingText) {
 						case 'load':
@@ -75,7 +74,7 @@ export default function Loading({ loadingText }) {
 					}
 				})()}
 			</Box>
-			<Box sx={{ height: '10vh', color: '#fff', textAlign: 'center', marginTop: 'auto', fontWeight: '600', color: '#fff' }}>
+			<Box className={styles.loadingFooter}>
 				<footer>
 					{packageJson.name.toUpperCase()} - {packageJson.version}
 				</footer>
