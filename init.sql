@@ -22,13 +22,13 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS events (
 	event_id INT NOT NULL UNIQUE AUTO_INCREMENT,
-	event_start varchar(10) NOT NULL,
-	event_end varchar(10) NOT NULL,
+	event_start DATETIME NOT NULL,
+	event_end DATETIME NOT NULL,
 	event_description varchar(150),
-	event_date DATE NOT NULL,
 	event_location varchar(50),
 	event_url varchar(50),
 	event_name varchar(50) NOT NULL,
+	event_id_public varchar(50) NOT NULL,
 	calendar_id INT NOT NULL,
 	PRIMARY KEY (event_id)
 );
@@ -59,14 +59,10 @@ CREATE TABLE IF NOT EXISTS api (
 	PRIMARY KEY (api_id)
 );
 
-
-
 ALTER TABLE calendars ADD CONSTRAINT calendars_fk3 FOREIGN KEY (calendar_user_id) REFERENCES users(user_id);
 
 ALTER TABLE devices ADD CONSTRAINT devices_fk3 FOREIGN KEY (devices_user_id) REFERENCES users(user_id);
 
 ALTER TABLE api ADD CONSTRAINT api_fk3 FOREIGN KEY (api_user_id) REFERENCES users(user_id);
-
-ALTER TABLE token ADD CONSTRAINT token_fk3 FOREIGN KEY (token_api_id) REFERENCES api(api_id);
 
 ALTER TABLE events ADD CONSTRAINT events_fk8 FOREIGN KEY (calendar_id) REFERENCES calendars(calendar_id);
