@@ -5,14 +5,13 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 import { useState, useEffect } from 'react';
 import Events from './events';
 
-export default function Side({ calendarsSelected, setCalendarsSelected, initialDate, events, eventsLite }) {
+export default function Side({ calendarsSelected, setCalendarsSelected, setIsOpenCalendar, initialDate, events, eventsLite }) {
 	const { data: session, status } = useSession();
 
-	const [isHovered, setIsHovered] = useState(false);
 	const [calendarsLists, setCalendarsLists] = useState([]);
 
 	const daysOfWeek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
-	const colors = ['a855f7', 'fbbf24', '3b82f6', 'f75555', '4e36c0', '23a638', '22c55e', 'a855f7'];
+	const colors = ['a855f7', 'fbbf24', '3b82f6', 'f75555', '4e36c0', '23a638', '22c55e'];
 	const [currentDate, setCurrentDate] = useState(new Date(initialDate));
 
 	useEffect(() => {
@@ -116,23 +115,14 @@ export default function Side({ calendarsSelected, setCalendarsSelected, initialD
 	return (
 		<div className="left-menu-smAq6k">
 			<div className="top-hDJypf">
-				<div className={styles['user-box']} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} onClick={signOut}>
-					{isHovered ? (
-						<span style={{ cursor: isHovered ? 'pointer' : '', display: 'flex', alignItems: 'center' }}>
-							<BoxArrowInLeft className={styles['user-icon']} color="#fff" />
-							<span className={styles['user-name']}>Sign Out</span>
-						</span>
-					) : (
-						<>
-							<PersonFill className={styles['user-icon']} color="#fff" />
-							<span className={styles['user-name']}>{session ? session.user.name : ''}</span>
-						</>
-					)}
+				<div className={styles['user-box']}>
+					<PersonFill className={styles['user-icon']} color="#fff" />
+					<span className={styles['user-name']}>{session ? session.user.name : ''}</span>
 				</div>
 
-				<div className="icon-button">
-					<div className="icon-button-master-fEMv3C icon-button-master" data-id="I1:299;45:4078">
-						<img className="icon" src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65f14e945ff555309d45bd7e/img/icon.svg" anima-src="https://cdn.animaapp.com/projects/65f14e7781d354160ac606b6/releases/65f14e945ff555309d45bd7e/img/icon.svg" alt="Icon" />
+				<div className={styles.iconButton} onClick={() => setIsOpenCalendar(true)}>
+					<div className={styles.iconButtonPlus}>
+						<BIcon.Plus />
 					</div>
 				</div>
 			</div>
