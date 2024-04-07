@@ -134,7 +134,12 @@ export default function Settings() {
 									<div className={styles.itemText}>Devices</div>
 								</div>
 
-								<div className={styles.item} onClick={() => signOut()}>
+								<div
+									className={styles.item}
+									onClick={() => {
+										router.push('/');
+										signOut();
+									}}>
 									<BoxArrowLeft className={styles.itemIcon} />
 									<div className={styles.itemText}>Logout</div>
 								</div>
