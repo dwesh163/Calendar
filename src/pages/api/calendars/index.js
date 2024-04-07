@@ -65,6 +65,6 @@ export default async function Index(req, res) {
 		return res.status(405).send('Method Not Allowed');
 	} catch (error) {
 		console.log(error);
-		return res.status(401).send('unauthorized');
+		return res.status(500).send('Internal Server Error');
 	}
 }
