@@ -30,11 +30,9 @@ export default async function Calendars(req, res) {
 				return res.status(200).send(calendar);
 			}
 
-			for (const calendarId of reqCalendarsId) {
-				if (verify.response.calendarsPublicId.includes(calendarId)) {
-					const [[calendar]] = await connection.execute('SELECT calendar_name, calendar_color, calendar_id_public FROM calendars WHERE calendar_id_public = ?', [calendarId]);
-					calendars.push(calendar);
-				}
+			for (const calendarId of verify.response.user_req_calendars_id) {
+				const [[calendar]] = await connection.execute('SELECT calendar_name, calendar_color, calendar_id_public FROM calendars WHERE calendar_id_public = ?', [calendarId]);
+				calendars.push(calendar);
 			}
 
 			return res.status(200).send(calendars);
@@ -74,9 +72,7 @@ export default async function Calendars(req, res) {
 				return res.status(verify.code).send(verify.response);
 			}
 
-			const reqCalendarsId = req.query.calendarsId.split(/:|\n/).filter((id) => id.trim() !== '');
-
-			for (const calendarId of reqCalendarsId) {
+			for (const calendarId of verify.response.user_req_calendars_id) {
 				const [[calendar]] = await connection.execute('SELECT calendar_id FROM calendars WHERE calendar_id_public = ?', [calendarId]);
 
 				await connection.execute('DELETE FROM events WHERE calendar_id = ?', [calendar.calendar_id]);
