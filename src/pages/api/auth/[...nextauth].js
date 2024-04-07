@@ -17,17 +17,6 @@ async function connectMySQL() {
 	}
 }
 
-function generateRandomString(length) {
-	let result = '';
-	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-	for (let i = 0; i < length; i++) {
-		result += characters.charAt(Math.floor(Math.random() * characters.length));
-	}
-
-	return result;
-}
-
 export const authOptions = (req) => ({
 	providers: [
 		GithubProvider({
@@ -47,7 +36,7 @@ export const authOptions = (req) => ({
 					await connection.execute('INSERT INTO users (user_id_public, user_email, user_username, user_image, user_provider, user_company, user_name) VALUES (?, ?, ?, ?, ?, ?, ?)', [uuidv4(), user.email, profile.login, user.image, account.provider, profile.company, profile.name]);
 					const [rows] = await connection.execute('SELECT user_id FROM users WHERE user_email = ?', [user.email]);
 					const userId = rows[0].user_id;
-					await connection.execute('INSERT INTO calendars (calendar_name, calendar_id_public, calendar_color, calendar_user_id) VALUES (?, ?, ?, ?)', ['Calendar 1', uuidv4(), 'a855f7', userId]);
+					await connection.execute('INSERT INTO calendars (calendar_name, calendar_icon, calendar_id_public, calendar_color, calendar_user_id) VALUES (?, ?, ?, ?, ?)', ['Calendar 1', 'Calendar3', uuidv4(), 'a855f7', userId]);
 				}
 
 				var deviceInfo = uaParser(req.headers['user-agent']);
