@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Modal from 'react-modal';
 import styles from '@/styles/index.module.css';
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
